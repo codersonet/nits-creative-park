@@ -226,7 +226,7 @@ async function createUser(data) { ... }
 
 ---
 
-## 6. Security (HIGH PRIORITY - the part AI usually skips)
+## 6. Security (HIGH PRIORITY)
 
 ### 6.1 Authentication and sessions
 - [ ] Passwords hashed with **bcrypt or argon2** (never MD5/SHA1/plain)
