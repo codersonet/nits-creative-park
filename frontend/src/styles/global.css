@@ -18,6 +18,7 @@
 @import '@legacy/styles.css';
 
 @import './tokens.css';
+@import './components.css';
 
 /* Hides text visually but keeps it for screen readers (used for form labels). */
 .visually-hidden {
