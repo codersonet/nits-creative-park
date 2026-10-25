@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Clubs and project directory.
+  Project cards are rendered from the shared dataset in script.js; keep the
+  filter button data-filter values aligned with each project's category.
+-->
+<head>
+  <!-- Resolve shared assets and site routes from the repository root. -->
+  <base href="../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page metadata powers browser tabs, search previews, and social sharing. -->
+  <title>CLUBS & PROJECTS // NIT SIKKIM</title>
+  <meta name="description" content="Explore NIT Sikkim student clubs, engineering teams, and student-led technology, robotics, and creative projects.">
+  <meta name="author" content="NIT Sikkim Creative Park">
+  <meta name="theme-color" content="#07080c">
+  <meta name="application-name" content="NIT Sikkim Creative Park">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="NIT Sikkim Creative Park">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://codersonet.github.io/nitsikkim-creatives/pages/clubs.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="favicon.svg" color="#e4e2e0">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NIT Sikkim Creative Park">
+  <meta property="og:title" content="Clubs & Projects | NIT Sikkim Creative Park">
+  <meta property="og:description" content="Explore NIT Sikkim student clubs, engineering teams, and student-led projects.">
+  <meta property="og:url" content="https://codersonet.github.io/nitsikkim-creatives/pages/clubs.html">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://codersonet.github.io/nitsikkim-creatives/social-preview.svg">
+  <meta property="og:image:secure_url" content="https://codersonet.github.io/nitsikkim-creatives/social-preview.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="NIT Sikkim Creative Park: clubs, projects, alumni, and events">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Clubs & Projects | NIT Sikkim Creative Park">
+  <meta name="twitter:description" content="Explore NIT Sikkim student clubs, engineering teams, and student-led projects.">
+  <meta name="twitter:image" content="https://codersonet.github.io/nitsikkim-creatives/social-preview.svg">
+  <meta name="twitter:image:alt" content="NIT Sikkim Creative Park: clubs, projects, alumni, and events">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stylesheets/clubs.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-clubs">
+
+  <canvas id="mountain-canvas"></canvas>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-title">NIT_SIKKIM</span>
+        <span class="label-mono brand-tag">// THE_OUTPOST</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">OVERVIEW</a>
+        <a href="pages/clubs.html" class="nav-link">CLUBS_&_PROJECTS</a>
+        <a href="pages/alumni.html" class="nav-link">ALUMNI_DIRECTORY</a>
+        <a href="pages/metrics.html" class="nav-link">METRICS</a>
+        <a href="pages/events.html" class="nav-link">EVENTS</a>
+      </nav>
+
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span class="label-mono">SYS_STATUS: ACTIVE</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <span class="label-mono">// TECHNICAL_SUBSYSTEMS</span>
+      <h1 class="headline-lg">Student Clubs & Live Projects</h1>
+      <p class="body-md">Discover active student-led technical organizations, engineering initiatives, robotics labs, and software deployments at NIT Sikkim.</p>
+    </section>
+
+    <section class="clubs-section">
+      <div class="section-header">
+        <span class="label-mono">// FILTER_NODES</span>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">ALL_SYSTEMS</button>
+          <button class="filter-btn" data-filter="tech">CODING_&_AI</button>
+          <button class="filter-btn" data-filter="robotics">ROBOTICS_&_HW</button>
+          <button class="filter-btn" data-filter="creative">DESIGN_&_CULTURE</button>
+        </div>
+      </div>
+
+      <div class="grid-container projects-grid" id="projects-container">
+        <!-- Dynamic Cards Injected via JS -->
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="project-modal">
+    <div class="glass-card modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <span class="label-mono" id="modal-club-tag">CLUB // DETAILED_SPECS</span>
+      <h2 class="headline-lg" id="modal-title">Project Title</h2>
+      <p class="body-md" id="modal-description">Detailed description will appear here.</p>
+      
+      <div class="modal-metrics">
+        <div>
+          <span class="label-mono">TECH_STACK</span>
+          <p id="modal-stack" class="label-mono text-primary">-</p>
+        </div>
+        <div>
+          <span class="label-mono">STATUS</span>
+          <p id="modal-status" class="label-mono text-primary">-</p>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a href="#" class="btn btn-primary" target="_blank">REQUEST_COLLABORATION</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
