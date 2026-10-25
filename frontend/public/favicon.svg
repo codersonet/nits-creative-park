@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- PLACEHOLDER icon (a night sky and two mountain peaks). Replace with the real logo. -->
+  <rect width="64" height="64" rx="14" fill="#131313"/>
+  <path d="M6 48 L24 22 L33 35 L41 26 L58 48 Z" fill="#38bdf8" opacity="0.9"/>
+  <path d="M24 22 L29 29 L24 27 L19 29 Z" fill="#f4f4f6"/>
+  <circle cx="47" cy="14" r="3" fill="#f4f4f6"/>
+</svg>

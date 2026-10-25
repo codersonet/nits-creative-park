@@ -1,0 +1,6 @@
+# robots.txt - all pages may be indexed.
+# NOTE: the address below is the GitHub Pages address. Change it if the site moves.
+User-agent: *
+Allow: /
+
+Sitemap: https://codersonet.github.io/nitsikkim-creatives/sitemap.xml
