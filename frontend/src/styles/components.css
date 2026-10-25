@@ -1,0 +1,61 @@
+/*
+ * components.css
+ * What:  Styles for the new React components that the old design system did not have:
+ *        skeleton loaders, error/empty states and disabled controls.
+ * Used by: global.css
+ * Talks to: tokens.css and the legacy tokens (--radius-sm, --primary, ...)
+ */
+
+/* Skeleton loaders (mandate Section 8.1): grey shapes shown while data loads. */
+.skeleton {
+  display: block;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-shine) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer var(--skeleton-duration) ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* WHY: close to the height of a real card, so the page does not jump when data arrives. */
+.card-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 260px;
+}
+
+/* Spacing between the two placeholder lines in a page header. */
+.page-skeleton-title {
+  margin-top: 16px;
+}
+
+/* Error and empty messages. */
+.state-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  max-width: 640px;
+  margin: 40px auto;
+}
+
+/* Disabled controls (the old stylesheet had no disabled look). */
+.btn:disabled,
+.hud-input:disabled,
+.hud-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
