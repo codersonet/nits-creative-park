@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Landing page for the NIT Sikkim Creative Park.
+  Keep the global navigation aligned with the other top-level pages; shared
+  interactions and the footer are initialized by script.js.
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Keep canonical and social URLs in sync with the deployed page path. -->
+  <title>NIT Sikkim - Creative_Park</title>
+  <meta name="description" content="Explore NIT Sikkim student clubs, engineering projects, innovation labs, events, recruitment partners, and the alumni network in one creative hub.">
+  <meta name="keywords" content="NIT Sikkim, NIT Sikkim clubs, NIT Sikkim projects, engineering student groups, alumni network, technical innovation, Sikkim">
+  <meta name="author" content="NIT Sikkim Creative Park">
+  <meta name="application-name" content="NIT Sikkim Creative Park">
+  <meta name="theme-color" content="#131313">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="NIT Sikkim Creative Park">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-image-preview:large">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
 
+  <link rel="canonical" href="https://codersonet.github.io/nitsikkim-creatives/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="favicon.svg" color="#e4e2e0">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NIT Sikkim Creative Park">
+  <meta property="og:title" content="NIT Sikkim Creative Park">
+  <meta property="og:description" content="The hub for NIT Sikkim engineering clubs, innovation projects, events, students, and alumni.">
+  <meta property="og:url" content="https://codersonet.github.io/nitsikkim-creatives/">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://codersonet.github.io/nitsikkim-creatives/social-preview.svg">
+  <meta property="og:image:secure_url" content="https://codersonet.github.io/nitsikkim-creatives/social-preview.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="NIT Sikkim Creative Park: clubs, projects, alumni, and events">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NIT Sikkim Creative Park">
+  <meta name="twitter:description" content="The hub for NIT Sikkim engineering clubs, innovation projects, events, students, and alumni.">
+  <meta name="twitter:image" content="https://codersonet.github.io/nitsikkim-creatives/social-preview.svg">
+  <meta name="twitter:image:alt" content="NIT Sikkim Creative Park: clubs, projects, alumni, and events">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "NIT Sikkim Creative Park",
+      "url": "https://codersonet.github.io/nitsikkim-creatives/",
+      "description": "A creative hub for NIT Sikkim engineering clubs, innovation projects, events, students, and alumni.",
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "National Institute of Technology Sikkim",
+        "alternateName": "NIT Sikkim"
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stylesheets/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-home">
+
+  <canvas id="mountain-canvas"></canvas>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-title">NIT_SIKKIM</span>
+        <span class="label-mono brand-tag">// THE_OUTPOST</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">OVERVIEW</a>
+        <a href="pages/clubs.html" class="nav-link">CLUBS_&_PROJECTS</a>
+        <a href="pages/alumni.html" class="nav-link">ALUMNI_DIRECTORY</a>
+        <a href="pages/metrics.html" class="nav-link">METRICS</a>
+        <a href="pages/events.html" class="nav-link">FESTS_&_EVENTS</a>
+      </nav>
+
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        <span class="label-mono">SYS_STATUS: ACTIVE</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hud-badge">
+          <span class="label-mono">PROGRESS // OUTPOST</span>
+        </div>
+        <h1 class="headline-xl">NIT_SIKKIM<br><span class="text-glow">CREATIVE_PARK</span></h1>
+        <p class="body-md hero-description">
+          The ON_SIGHT hub for NIT Sikkim engineering student groups, technical innovation labs, active project teams, and alumni networks.
+        </p>
+        <div class="hero-actions">
+          <a href="pages/clubs.html" class="btn btn-primary">EXPLORE_CLUBS</a>
+          <a href="pages/companies.html" class="btn btn-ghost">RECRUITER_LOGS</a>
+        </div>
+      </div>
+
+      <div class="terrain-hud glass-card">
+        <div class="hud-header">
+          <span class="label-mono">TERRAIN_PROFILE</span>
+          <span class="label-mono">27.3012° N, 88.3615° E</span>
+        </div>
+        <div class="topography-graphic">
+          <div class="topo-line line-1"></div>
+          <div class="topo-line line-2"></div>
+          <div class="topo-line line-3"></div>
+        </div>
+        <div class="hud-footer">
+          <div class="hud-stat">
+            <span class="label-mono">STATION</span>
+            <span class="hud-val">SOUTH SIKKIM</span>
+          </div>
+          <div class="hud-stat">
+            <span class="label-mono">CLIMATE</span>
+            <span class="hud-val">RAIN DANCE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="grid-container stats-grid">
+        <div class="glass-card stat-card">
+          <span class="label-mono">ACTIVE_CLUBS</span>
+          <h2 class="headline-lg count-up" data-target="12">0</h2>
+          <span class="label-mono text-muted">Technical Subsystems</span>
+        </div>
+        <div class="glass-card stat-card">
+          <span class="label-mono">LIVE_PROJECTS</span>
+          <h2 class="headline-lg count-up" data-target="48">0</h2>
+          <span class="label-mono text-muted">Active Deployments</span>
+        </div>
+        <div class="glass-card stat-card">
+          <span class="label-mono">GRADUATED_NET</span>
+          <h2 class="headline-lg count-up" data-target="1659">0</h2>
+          <span class="label-mono text-muted">Global Alumni Members</span>
+        </div>
+        <div class="glass-card stat-card">
+          <span class="label-mono">TOP_PARTNERS</span>
+          <h2 class="headline-lg count-up" data-target="85">0</h2>
+          <span class="label-mono text-muted">Visiting Tech Firms</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
