@@ -3,7 +3,7 @@
  * What:  Single entry for all global CSS: self-hosted fonts, the legacy design system,
  *        new tokens and small accessibility helpers.
  * Used by: main.jsx
- * Talks to: @fontsource packages, ../../../styles.css (legacy, via @legacy), tokens.css
+ * Talks to: @fontsource packages, ../../../styles.css (legacy, via @legacy), tokens.css, components.css
  */
 
 /* Self-hosted fonts (mandate Section 8.3). Latin subset only, font-display: swap is built in. */
