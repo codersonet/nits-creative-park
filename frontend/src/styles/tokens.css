@@ -1,0 +1,18 @@
+/*
+ * tokens.css
+ * What:  New design tokens added by the React frontend.
+ * Used by: global.css, skeleton and toast styles
+ * Talks to: the legacy tokens in styles.css (colors, fonts, radius, easing already live there)
+ */
+:root {
+  /* Skeleton loaders (mandate Section 8.1) */
+  --skeleton-base: rgba(255, 255, 255, 0.06);
+  --skeleton-shine: rgba(255, 255, 255, 0.14);
+  --skeleton-duration: 1.4s;
+
+  /* Accent colour the old stylesheet did not define (cyan, purple and emerald already exist). */
+  --accent-amber: #f59e0b;
+
+  /* WHY: the legacy project modal sits at z-index 2000, so toasts must be above it. */
+  --z-toast: 3000;
+}
