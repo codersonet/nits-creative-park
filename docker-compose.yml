@@ -1,0 +1,116 @@
+# docker-compose.yml
+# What:  Runs the whole project locally with one command:  docker compose up --build
+#        Then open http://localhost:8080   (mandate Section 2 and Section 11)
+# Needs: .env (copy .env.example), frontend/package-lock.json and backend/package-lock.json
+# Parts: postgres (database), redis (cache), migrate (runs once), backend (API), frontend (Nginx).
+# More API copies:  docker compose up -d --scale backend=2   (Nginx spreads requests across them)
+# Load content:     docker compose run --rm migrate node seeds/seed.js
+
+services:
+  postgres:
+    image: postgres:16.4-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-creativepark}
+      POSTGRES_DB: ${POSTGRES_DB:-creativepark}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks: [internal]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.4-alpine
+    # The cache is only a speed-up, so nothing is saved to disk.
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD:?Set REDIS_PASSWORD in .env}", "--save", "", "--appendonly", "no"]
+    environment:
+      REDISCLI_AUTH: ${REDIS_PASSWORD}
+    networks: [internal]
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  # Runs the database migrations once and exits. The API starts only after it succeeds.
+  migrate:
+    build: ./backend
+    command: ["node", "migrations/migrate.js", "up"]
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-creativepark}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-creativepark}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks: [internal]
+    restart: "no"
+
+  backend:
+    build: ./backend
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://${POSTGRES_USER:-creativepark}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-creativepark}
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379
+      CORS_ORIGINS: ${CORS_ORIGINS:-}
+      TRUST_PROXY: "1"
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-300}
+      CONTACT_RATE_LIMIT_PER_HOUR: ${CONTACT_RATE_LIMIT_PER_HOUR:-5}
+      CONTACT_RETENTION_DAYS: ${CONTACT_RETENTION_DAYS:-365}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    # Not published to the host: the only way in is through the frontend's Nginx.
+    networks: [edge, internal]
+    # Least privilege: no extra powers, and the container's files are read-only.
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: [/tmp]
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:4000/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        VITE_SITE_URL: ${VITE_SITE_URL:-http://localhost:8080}
+        VITE_BASE_PATH: /
+        VITE_API_BASE_URL: /api/v1
+        VITE_USE_MOCK_DATA: ${VITE_USE_MOCK_DATA:-false}
+    ports:
+      - "8080:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks: [edge]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    read_only: true
+    tmpfs: [/tmp]
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+networks:
+  # The site and the API talk here.
+  edge: {}
+  # The database and cache live here. "internal" means no route to the outside world.
+  internal:
+    internal: true
+
+volumes:
+  pgdata: {}

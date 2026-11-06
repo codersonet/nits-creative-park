@@ -1,0 +1,42 @@
+{
+  "name": "nitsikkim-creative-park-backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": { "node": ">=22.9" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch --env-file-if-exists=.env src/server.js",
+    "migrate": "node --env-file-if-exists=.env migrations/migrate.js up",
+    "migrate:down": "node --env-file-if-exists=.env migrations/migrate.js down",
+    "migrate:status": "node --env-file-if-exists=.env migrations/migrate.js status",
+    "seed": "node --env-file-if-exists=.env seeds/seed.js",
+    "job:purge-contact": "node --env-file-if-exists=.env src/jobs/purgeContactMessages.job.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "audit:prod": "npm audit --omit=dev --audit-level=high"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.21.1",
+    "express-rate-limit": "7.4.1",
+    "helmet": "8.0.0",
+    "ioredis": "5.4.1",
+    "pg": "8.13.1",
+    "pino": "9.5.0",
+    "pino-http": "10.3.0",
+    "rate-limit-redis": "4.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.13.0",
+    "eslint": "9.13.0",
+    "globals": "15.11.0",
+    "prettier": "3.3.3",
+    "supertest": "7.0.0",
+    "vitest": "2.1.4"
+  }
+}
