@@ -3,7 +3,7 @@
 # Build: run from the repository root, because the app imports legacy files through @legacy:
 #        docker build -f frontend/Dockerfile -t creative-park-web .
 # Needs: frontend/package-lock.json (create it once with `npm install`)
-#        and infra/nginx/frontend.conf (added in Batch 7).
+#        and infra/nginx/frontend.conf .
 
 FROM node:22.11.0-alpine AS build
 WORKDIR /app
