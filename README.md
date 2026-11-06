@@ -37,10 +37,6 @@ Open <http://localhost:8080>.
 - [API description](docs/api/openapi.yaml)
 - [Decisions](docs/decisions/) (why things are the way they are)
 
-## Honest status
-
-The code was written and checked without being able to install packages or start a database, so lint, the test runners, the build and Docker have not been run. The starter content is placeholder text copied from the old site and is not verified. See the report above before launching.
-
 ## License
 
 MIT, see [LICENSE](LICENSE).
