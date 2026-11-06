@@ -1,9 +1,11 @@
 {
   "name": "nitsikkim-creative-park-backend",
-  "private": true,
-  "version": "0.1.0",
+  "private": "false",
+  "version": "1.0.0",
   "type": "module",
-  "engines": { "node": ">=22.9" },
+  "engines": {
+    "node": ">=22.9"
+  },
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch --env-file-if-exists=.env src/server.js",
@@ -22,7 +24,7 @@
   },
   "dependencies": {
     "cors": "2.8.5",
-    "express": "4.21.1",
+    "express": "^4.22.3",
     "express-rate-limit": "7.4.1",
     "helmet": "8.0.0",
     "ioredis": "5.4.1",

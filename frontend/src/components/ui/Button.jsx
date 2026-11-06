@@ -5,15 +5,15 @@
  * Used by: pages and feature components
  * Talks to: react-router-dom, utils/class-names.js
  */
-import { Link } from 'react-router-dom';
-import { cx } from '@/utils/class-names.js';
+import { Link } from "react-router-dom";
+import { cx } from "@/utils/class-names.js";
 
 const EXTERNAL_URL = /^https?:\/\//;
 
 // variant: "primary" or "ghost". Give "to" for a page inside the site, "href" for any other
 // address, or neither for an action button. A disabled button never navigates.
 export default function Button({
-  variant = 'primary',
+  variant = "primary",
   to,
   href,
   disabled = false,
@@ -21,7 +21,7 @@ export default function Button({
   children,
   ...rest
 }) {
-  const classes = cx('btn', `btn-${variant}`, className);
+  const classes = cx("btn", `btn-${variant}`, className);
 
   if (disabled) {
     return (
@@ -40,7 +40,7 @@ export default function Button({
   if (href) {
     // SECURITY: links to other sites open in a new tab without handing over window.opener.
     const externalProps = EXTERNAL_URL.test(href)
-      ? { target: '_blank', rel: 'noopener noreferrer' }
+      ? { target: "_blank", rel: "noopener noreferrer" }
       : {};
     return (
       <a href={href} className={classes} {...externalProps} {...rest}>

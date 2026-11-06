@@ -5,17 +5,17 @@
  * Used by: controllers/health.controller.js
  * Talks to: repositories/health.repository.js, config/cache.js, config/env.js
  */
-import { isCacheReady } from '../config/cache.js';
-import { env } from '../config/env.js';
-import { pingDatabase } from '../repositories/health.repository.js';
+import { isCacheReady } from "../config/cache.js";
+import { env } from "../config/env.js";
+import { pingDatabase } from "../repositories/health.repository.js";
 
 // Returns { ready, database, cache }. "cache" is "disabled" when no Redis is configured.
 export async function checkReadiness() {
   const database = await pingDatabase().then(
-    () => 'up',
-    () => 'down',
+    () => "up",
+    () => "down",
   );
-  let cache = 'disabled';
-  if (env.redisUrl) cache = isCacheReady() ? 'up' : 'down';
-  return { ready: database === 'up', database, cache };
+  let cache = "disabled";
+  if (env.redisUrl) cache = isCacheReady() ? "up" : "down";
+  return { ready: database === "up", database, cache };
 }

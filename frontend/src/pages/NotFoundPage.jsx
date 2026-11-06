@@ -5,10 +5,10 @@
  * Used by: routes/AppRoutes.jsx (the "*" route)
  * Talks to: SeoHead, PageHeader, Button, constants/routes.js
  */
-import SeoHead from '@/components/layout/SeoHead.jsx';
-import Button from '@/components/ui/Button.jsx';
-import PageHeader from '@/components/ui/PageHeader.jsx';
-import { ROUTES } from '@/constants/routes.js';
+import SeoHead from "@/components/layout/SeoHead.jsx";
+import Button from "@/components/ui/Button.jsx";
+import PageHeader from "@/components/ui/PageHeader.jsx";
+import { ROUTES } from "@/constants/routes.js";
 
 // The page for addresses that do not exist (mandate Section 8.5).
 export default function NotFoundPage() {

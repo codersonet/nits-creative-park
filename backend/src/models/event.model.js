@@ -5,10 +5,10 @@
  * Used by: repositories/event.repository.js
  * Talks to: nothing
  */
-export const EVENT_TABLE = 'events';
+export const EVENT_TABLE = "events";
 export const EVENT_SELECT = `id, title, category, kind, accent,
   to_char(start_date, 'YYYY-MM-DD') AS "startDate",
   to_char(end_date, 'YYYY-MM-DD') AS "endDate",
   description, tags, organizer,
   json_build_object('label', action_label, 'variant', action_variant, 'url', action_url) AS action`;
-export const EVENT_ORDER = 'start_date, id';
+export const EVENT_ORDER = "start_date, id";

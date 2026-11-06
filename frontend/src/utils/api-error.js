@@ -10,7 +10,7 @@
 export class ApiError extends Error {
   constructor({ code, message, status = 0, requestId = null }) {
     super(message);
-    this.name = 'ApiError';
+    this.name = "ApiError";
     this.code = code;
     this.status = status;
     this.requestId = requestId;
@@ -21,5 +21,9 @@ export class ApiError extends Error {
 // Errors like "not found" or "invalid input" will fail again, so they are not retried.
 export function isRetryable(error) {
   if (!(error instanceof ApiError)) return false;
-  return error.code === 'NETWORK_ERROR' || error.code === 'TIMEOUT' || error.status >= 500;
+  return (
+    error.code === "NETWORK_ERROR" ||
+    error.code === "TIMEOUT" ||
+    error.status >= 500
+  );
 }

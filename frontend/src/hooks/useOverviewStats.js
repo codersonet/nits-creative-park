@@ -4,9 +4,9 @@
  * Used by: HomePage
  * Talks to: metrics.service.js, @tanstack/react-query
  */
-import { useQuery } from '@tanstack/react-query';
-import { QUERY_KEYS } from '@/constants/query-keys.js';
-import { getOverviewStats } from '@/services/metrics.service.js';
+import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "@/constants/query-keys.js";
+import { getOverviewStats } from "@/services/metrics.service.js";
 
 // Returns the query result (data, isPending, isError, error, refetch).
 export function useOverviewStats() {

@@ -5,10 +5,10 @@
  * Used by: pages/EventsPage
  * Talks to: hooks/useFeaturedFest.js, QueryBoundary, FestHero, CardSkeleton
  */
-import CardSkeleton from '@/components/skeletons/CardSkeleton.jsx';
-import QueryBoundary from '@/components/ui/QueryBoundary.jsx';
-import { useFeaturedFest } from '@/hooks/useFeaturedFest.js';
-import FestHero from './FestHero.jsx';
+import CardSkeleton from "@/components/skeletons/CardSkeleton.jsx";
+import QueryBoundary from "@/components/ui/QueryBoundary.jsx";
+import { useFeaturedFest } from "@/hooks/useFeaturedFest.js";
+import FestHero from "./FestHero.jsx";
 
 // Loads and shows the spotlight fest at the top of the events page.
 export default function FeaturedFestSection() {

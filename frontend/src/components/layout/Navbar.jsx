@@ -5,10 +5,10 @@
  * Used by: components/layout/Layout
  * Talks to: react-router-dom, constants/navigation.js, constants/routes.js, routes/page-loaders.js
  */
-import { Link, NavLink } from 'react-router-dom';
-import { NAV_LINKS } from '@/constants/navigation.js';
-import { ROUTES } from '@/constants/routes.js';
-import { prefetchPage } from '@/routes/page-loaders.js';
+import { Link, NavLink } from "react-router-dom";
+import { NAV_LINKS } from "@/constants/navigation.js";
+import { ROUTES } from "@/constants/routes.js";
+import { prefetchPage } from "@/routes/page-loaders.js";
 
 // The top bar: brand, page links and the status badge.
 export default function Navbar() {
@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="nav-container">
         <Link to={ROUTES.HOME} className="brand">
           <span className="brand-title">NIT_SIKKIM</span>
-          <span className="label-mono brand-tag">// THE_OUTPOST</span>
+          <span className="label-mono brand-tag">{"// THE_OUTPOST"}</span>
         </Link>
 
         <nav className="nav-links" aria-label="Main">

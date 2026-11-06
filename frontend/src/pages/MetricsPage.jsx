@@ -4,16 +4,16 @@
  * Used by: routes/AppRoutes.jsx (path "/metrics")
  * Talks to: SeoHead, PageHeader, MetricsDashboard, hooks/usePageClass.js, legacy metrics.css
  */
-import '@legacy/stylesheets/metrics.css';
-import MetricsDashboard from '@/components/features/metrics/MetricsDashboard.jsx';
-import SeoHead from '@/components/layout/SeoHead.jsx';
-import PageHeader from '@/components/ui/PageHeader.jsx';
-import { ROUTES } from '@/constants/routes.js';
-import { usePageClass } from '@/hooks/usePageClass.js';
+import "@legacy/stylesheets/metrics.css";
+import MetricsDashboard from "@/components/features/metrics/MetricsDashboard.jsx";
+import SeoHead from "@/components/layout/SeoHead.jsx";
+import PageHeader from "@/components/ui/PageHeader.jsx";
+import { ROUTES } from "@/constants/routes.js";
+import { usePageClass } from "@/hooks/usePageClass.js";
 
 // Campus engineering numbers: counters, department participation and server uptime.
 export default function MetricsPage() {
-  usePageClass('page-metrics');
+  usePageClass("page-metrics");
   return (
     <>
       <SeoHead

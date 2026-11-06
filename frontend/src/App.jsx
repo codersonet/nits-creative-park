@@ -4,8 +4,8 @@
  * Used by: main.jsx
  * Talks to: ErrorBoundary, routes/AppRoutes.jsx
  */
-import ErrorBoundary from '@/components/layout/ErrorBoundary.jsx';
-import AppRoutes from '@/routes/AppRoutes.jsx';
+import ErrorBoundary from "@/components/layout/ErrorBoundary.jsx";
+import AppRoutes from "@/routes/AppRoutes.jsx";
 
 // The top of the component tree.
 export default function App() {

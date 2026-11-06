@@ -4,14 +4,14 @@
  * Used by: MetricsDashboard
  * Talks to: GlassCard, ProgressBar
  */
-import GlassCard from '@/components/ui/GlassCard.jsx';
-import ProgressBar from '@/components/ui/ProgressBar.jsx';
+import GlassCard from "@/components/ui/GlassCard.jsx";
+import ProgressBar from "@/components/ui/ProgressBar.jsx";
 
 // "rows" is a list of { id, department, percent }.
 export default function ParticipationCard({ rows }) {
   return (
     <GlassCard>
-      <span className="label-mono">// DEPT_ENGAGEMENT</span>
+      <span className="label-mono">{"// DEPT_ENGAGEMENT"}</span>
       <h3 className="headline-lg panel-title">Club Participation Rate</h3>
       {rows.map((row) => (
         <div className="progress-container" key={row.id}>
@@ -19,7 +19,10 @@ export default function ParticipationCard({ rows }) {
             <span className="label-mono">{row.department}</span>
             <span className="label-mono">{row.percent}%</span>
           </div>
-          <ProgressBar percent={row.percent} label={`${row.department} participation`} />
+          <ProgressBar
+            percent={row.percent}
+            label={`${row.department} participation`}
+          />
         </div>
       ))}
     </GlassCard>

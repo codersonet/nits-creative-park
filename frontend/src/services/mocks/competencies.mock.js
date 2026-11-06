@@ -7,33 +7,33 @@
  */
 export const competenciesMock = [
   {
-    id: 'spatial-stack',
-    code: 'SPATIAL_STACK',
-    title: 'SPATIAL COMPUTING & VR',
+    id: "spatial-stack",
+    code: "SPATIAL_STACK",
+    title: "SPATIAL COMPUTING & VR",
     percent: 94,
     description:
-      'Real-time WebGL, photogrammetry terrain mapping, and spatial interactive shaders practiced during design hackathons.',
-    tags: ['THREE.JS', 'GLSL', 'RAYCASTING'],
-    accent: 'cyan',
+      "Real-time WebGL, photogrammetry terrain mapping, and spatial interactive shaders practiced during design hackathons.",
+    tags: ["THREE.JS", "GLSL", "RAYCASTING"],
+    accent: "cyan",
   },
   {
-    id: 'robotics-stack',
-    code: 'ROBOTICS_STACK',
-    title: 'AUTONOMOUS ROBOTICS & SLAM',
+    id: "robotics-stack",
+    code: "ROBOTICS_STACK",
+    title: "AUTONOMOUS ROBOTICS & SLAM",
     percent: 91,
     description:
-      'LiDAR-based terrain obstacle navigation, ROS2 path-planning, and high-altitude rover kinematics developed for Robo-Terrain.',
-    tags: ['ROS2', 'OPENCV', 'C++'],
-    accent: 'purple',
+      "LiDAR-based terrain obstacle navigation, ROS2 path-planning, and high-altitude rover kinematics developed for Robo-Terrain.",
+    tags: ["ROS2", "OPENCV", "C++"],
+    accent: "purple",
   },
   {
-    id: 'neural-stack',
-    code: 'NEURAL_STACK',
-    title: 'NEURAL INTERFACES & AI',
+    id: "neural-stack",
+    code: "NEURAL_STACK",
+    title: "NEURAL INTERFACES & AI",
     percent: 88,
     description:
-      'On-device edge inference, LLM agent integration, and computer vision deployed during the 36-hour DevHack marathon.',
-    tags: ['PYTORCH', 'DIFFUSION', 'ONNX'],
-    accent: 'emerald',
+      "On-device edge inference, LLM agent integration, and computer vision deployed during the 36-hour DevHack marathon.",
+    tags: ["PYTORCH", "DIFFUSION", "ONNX"],
+    accent: "emerald",
   },
 ];

@@ -8,13 +8,17 @@
  * Note:  kept as a separate file so a strict Content-Security-Policy (script-src 'self') allows it.
  */
 (function restoreAddress(location) {
-  if (location.search[1] !== '/') return;
+  if (location.search[1] !== "/") return;
   var restored = location.search
     .slice(1)
-    .split('&')
+    .split("&")
     .map(function (part) {
-      return part.replace(/~and~/g, '&');
+      return part.replace(/~and~/g, "&");
     })
-    .join('?');
-  window.history.replaceState(null, null, location.pathname.slice(0, -1) + restored + location.hash);
+    .join("?");
+  window.history.replaceState(
+    null,
+    null,
+    location.pathname.slice(0, -1) + restored + location.hash,
+  );
 })(window.location);

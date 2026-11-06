@@ -6,22 +6,26 @@
  *           (scripts/check-contract.mjs checks that in CI).
  */
 export const CONTACT_SKILLS = Object.freeze([
-  'AUTONOMOUS_ROBOTICS',
-  'AI_DISTRIBUTED_ML',
-  'HIMALAYAN_IOT',
-  'SPATIAL_COMPUTING',
-  'FULLSTACK_SYSTEMS',
-  'AEROSPACE_DRONES',
-  'QUANTUM_FINTECH',
-  'SEISMIC_CIVIL',
+  "AUTONOMOUS_ROBOTICS",
+  "AI_DISTRIBUTED_ML",
+  "HIMALAYAN_IOT",
+  "SPATIAL_COMPUTING",
+  "FULLSTACK_SYSTEMS",
+  "AEROSPACE_DRONES",
+  "QUANTUM_FINTECH",
+  "SEISMIC_CIVIL",
 ]);
 
 export const CONTACT_SUBJECTS = Object.freeze([
-  'PROJECT_COLLABORATION',
-  'CAMPUS_RECRUITMENT',
-  'RESEARCH_PARTNERSHIP',
-  'ALUMNI_NETWORKING',
-  'SYSTEM_FEEDBACK',
+  "PROJECT_COLLABORATION",
+  "CAMPUS_RECRUITMENT",
+  "RESEARCH_PARTNERSHIP",
+  "ALUMNI_NETWORKING",
+  "SYSTEM_FEEDBACK",
 ]);
 
-export const CONTACT_LIMITS = Object.freeze({ nameMax: 100, emailMax: 254, messageMax: 2000 });
+export const CONTACT_LIMITS = Object.freeze({
+  nameMax: 100,
+  emailMax: 254,
+  messageMax: 2000,
+});

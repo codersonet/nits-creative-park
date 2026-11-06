@@ -7,5 +7,5 @@
 
 // cx('btn', isBig && 'btn-big', undefined) -> "btn"
 export function cx(...names) {
-  return names.filter(Boolean).join(' ');
+  return names.filter(Boolean).join(" ");
 }

@@ -7,11 +7,11 @@
 
 // Clean URLs without ".html". The router adds the site's base path in front.
 export const ROUTES = Object.freeze({
-  HOME: '/',
-  CLUBS: '/clubs',
-  ALUMNI: '/alumni',
-  COMPANIES: '/companies',
-  EVENTS: '/events',
-  METRICS: '/metrics',
-  CONTACT: '/contact',
+  HOME: "/",
+  CLUBS: "/clubs",
+  ALUMNI: "/alumni",
+  COMPANIES: "/companies",
+  EVENTS: "/events",
+  METRICS: "/metrics",
+  CONTACT: "/contact",
 });

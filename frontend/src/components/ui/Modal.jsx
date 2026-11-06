@@ -5,11 +5,12 @@
  * Used by: ProjectModal
  * Talks to: react-dom (portal), utils/class-names.js
  */
-import { useEffect, useId, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
-import { cx } from '@/utils/class-names.js';
+import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { cx } from "@/utils/class-names.js";
 
-const FOCUSABLE = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+const FOCUSABLE =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 // "open" shows the dialog. "onClose" is called for every way of closing it.
 export default function Modal({ open, onClose, eyebrow, title, children }) {
@@ -32,7 +33,7 @@ export default function Modal({ open, onClose, eyebrow, title, children }) {
     if (!open) return undefined;
     const previouslyFocused = document.activeElement;
     const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
     dialogRef.current?.querySelector(FOCUSABLE)?.focus();
     return () => {
       document.body.style.overflow = previousOverflow;
@@ -44,11 +45,11 @@ export default function Modal({ open, onClose, eyebrow, title, children }) {
 
   // Escape closes. Tab and Shift+Tab loop inside the dialog instead of leaving it.
   function handleKeyDown(event) {
-    if (event.key === 'Escape') {
+    if (event.key === "Escape") {
       onClose();
       return;
     }
-    if (event.key !== 'Tab') return;
+    if (event.key !== "Tab") return;
     const items = [...dialogRef.current.querySelectorAll(FOCUSABLE)];
     if (items.length === 0) return;
     const first = items[0];
@@ -69,7 +70,7 @@ export default function Modal({ open, onClose, eyebrow, title, children }) {
 
   return createPortal(
     <div
-      className={cx('modal-overlay', visible && 'active')}
+      className={cx("modal-overlay", visible && "active")}
       role="presentation"
       onMouseDown={handleBackdropMouseDown}
       onKeyDown={handleKeyDown}
@@ -81,7 +82,12 @@ export default function Modal({ open, onClose, eyebrow, title, children }) {
         aria-modal="true"
         aria-labelledby={titleId}
       >
-        <button type="button" className="modal-close" onClick={onClose} aria-label="Close dialog">
+        <button
+          type="button"
+          className="modal-close"
+          onClick={onClose}
+          aria-label="Close dialog"
+        >
           &times;
         </button>
         {eyebrow && <span className="label-mono">{eyebrow}</span>}

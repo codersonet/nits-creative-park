@@ -4,10 +4,10 @@
  * Used by: ClubsPage
  * Talks to: project.service.js, @tanstack/react-query
  */
-import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { ALL_CATEGORY } from '@/constants/categories.js';
-import { QUERY_KEYS } from '@/constants/query-keys.js';
-import { getProjects } from '@/services/project.service.js';
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { ALL_CATEGORY } from "@/constants/categories.js";
+import { QUERY_KEYS } from "@/constants/query-keys.js";
+import { getProjects } from "@/services/project.service.js";
 
 // Returns the query result; the list is in data.items.
 export function useProjects(category = ALL_CATEGORY) {

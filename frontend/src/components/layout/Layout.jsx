@@ -5,15 +5,15 @@
  * Used by: the router (routes/AppRoutes.jsx, Batch 6)
  * Talks to: MountainCanvas, OfflineBanner, Navbar, Footer, ErrorBoundary, PageSkeleton, hooks/useRouteChangeFocus.js
  */
-import { Suspense, useRef } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
-import MountainCanvas from '@/components/features/background/MountainCanvas.jsx';
-import PageSkeleton from '@/components/skeletons/PageSkeleton.jsx';
-import { useRouteChangeFocus } from '@/hooks/useRouteChangeFocus.js';
-import ErrorBoundary from './ErrorBoundary.jsx';
-import Footer from './Footer.jsx';
-import Navbar from './Navbar.jsx';
-import OfflineBanner from './OfflineBanner.jsx';
+import { Suspense, useRef } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import MountainCanvas from "@/components/features/background/MountainCanvas.jsx";
+import PageSkeleton from "@/components/skeletons/PageSkeleton.jsx";
+import { useRouteChangeFocus } from "@/hooks/useRouteChangeFocus.js";
+import ErrorBoundary from "./ErrorBoundary.jsx";
+import Footer from "./Footer.jsx";
+import Navbar from "./Navbar.jsx";
+import OfflineBanner from "./OfflineBanner.jsx";
 
 // The frame around every page: background, skip link, navbar, the page itself, footer.
 export default function Layout() {

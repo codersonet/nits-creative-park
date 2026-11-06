@@ -4,16 +4,16 @@
  * Used by: routes/AppRoutes.jsx (path "/")
  * Talks to: SeoHead, Hero, OverviewStats, hooks/usePageClass.js, legacy index.css
  */
-import '@legacy/stylesheets/index.css';
-import Hero from '@/components/features/home/Hero.jsx';
-import OverviewStats from '@/components/features/home/OverviewStats.jsx';
-import SeoHead from '@/components/layout/SeoHead.jsx';
-import { ROUTES } from '@/constants/routes.js';
-import { usePageClass } from '@/hooks/usePageClass.js';
+import "@legacy/stylesheets/index.css";
+import Hero from "@/components/features/home/Hero.jsx";
+import OverviewStats from "@/components/features/home/OverviewStats.jsx";
+import SeoHead from "@/components/layout/SeoHead.jsx";
+import { ROUTES } from "@/constants/routes.js";
+import { usePageClass } from "@/hooks/usePageClass.js";
 
 // The landing page: hero section and the four campus counters.
 export default function HomePage() {
-  usePageClass('page-home');
+  usePageClass("page-home");
   return (
     <>
       <SeoHead

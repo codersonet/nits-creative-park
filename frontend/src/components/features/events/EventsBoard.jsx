@@ -5,13 +5,13 @@
  * Used by: pages/EventsPage
  * Talks to: hooks/useEvents.js, FilterBar, QueryBoundary, EventCard, CardGridSkeleton
  */
-import CardGridSkeleton from '@/components/skeletons/CardGridSkeleton.jsx';
-import EmptyState from '@/components/ui/EmptyState.jsx';
-import FilterBar from '@/components/ui/FilterBar.jsx';
-import QueryBoundary from '@/components/ui/QueryBoundary.jsx';
-import { EVENT_CATEGORIES } from '@/constants/categories.js';
-import { useEvents } from '@/hooks/useEvents.js';
-import EventCard from './EventCard.jsx';
+import CardGridSkeleton from "@/components/skeletons/CardGridSkeleton.jsx";
+import EmptyState from "@/components/ui/EmptyState.jsx";
+import FilterBar from "@/components/ui/FilterBar.jsx";
+import QueryBoundary from "@/components/ui/QueryBoundary.jsx";
+import { EVENT_CATEGORIES } from "@/constants/categories.js";
+import { useEvents } from "@/hooks/useEvents.js";
+import EventCard from "./EventCard.jsx";
 
 // The "Scheduled Events & Competitions" block: category filter and event cards.
 export default function EventsBoard({ category, onCategoryChange }) {
@@ -20,8 +20,12 @@ export default function EventsBoard({ category, onCategoryChange }) {
     <section className="events-section" id="events-section">
       <div className="section-header">
         <div>
-          <span className="label-mono accent-cyan">// CURATED_TIMELINE</span>
-          <h2 className="headline-lg section-title">Scheduled Events & Competitions</h2>
+          <span className="label-mono accent-cyan">
+            {"// CURATED_TIMELINE"}
+          </span>
+          <h2 className="headline-lg section-title">
+            Scheduled Events & Competitions
+          </h2>
         </div>
         <FilterBar
           options={EVENT_CATEGORIES}
@@ -34,7 +38,12 @@ export default function EventsBoard({ category, onCategoryChange }) {
         query={query}
         skeleton={<CardGridSkeleton className="projects-grid" />}
         isEmpty={(data) => data.items.length === 0}
-        empty={<EmptyState title="No events here yet" message="Try another category." />}
+        empty={
+          <EmptyState
+            title="No events here yet"
+            message="Try another category."
+          />
+        }
       >
         {(data) => (
           <div className="grid-container projects-grid">

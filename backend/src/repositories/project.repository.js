@@ -4,8 +4,12 @@
  * Used by: services/project.service.js
  * Talks to: base.repository.js, models/project.model.js
  */
-import { PROJECT_TABLE, PROJECT_SELECT, PROJECT_ORDER } from '../models/project.model.js';
-import { findPage } from './base.repository.js';
+import {
+  PROJECT_TABLE,
+  PROJECT_SELECT,
+  PROJECT_ORDER,
+} from "../models/project.model.js";
+import { findPage } from "./base.repository.js";
 
 // Gets one page, optionally only one category. The category is passed as a parameter.
 export function findProjects({ category, page, limit }) {
@@ -13,7 +17,7 @@ export function findProjects({ category, page, limit }) {
     table: PROJECT_TABLE,
     select: PROJECT_SELECT,
     orderBy: PROJECT_ORDER,
-    where: category ? 'category = $1' : '',
+    where: category ? "category = $1" : "",
     params: category ? [category] : [],
     page,
     limit,

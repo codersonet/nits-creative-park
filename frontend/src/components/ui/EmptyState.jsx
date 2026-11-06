@@ -4,10 +4,10 @@
  * Used by: list pages (projects, events, alumni, companies)
  * Talks to: GlassCard
  */
-import GlassCard from './GlassCard.jsx';
+import GlassCard from "./GlassCard.jsx";
 
 // "message" should say what the visitor can do next, not just "no results".
-export default function EmptyState({ title = 'Nothing here yet', message }) {
+export default function EmptyState({ title = "Nothing here yet", message }) {
   return (
     <GlassCard className="state-card">
       <h2 className="headline-lg">{title}</h2>

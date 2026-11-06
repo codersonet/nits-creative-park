@@ -4,17 +4,20 @@
  * Used by: pages/HomePage
  * Talks to: hooks/useOverviewStats.js, QueryBoundary, StatsGrid, CardGridSkeleton
  */
-import QueryBoundary from '@/components/ui/QueryBoundary.jsx';
-import CardGridSkeleton from '@/components/skeletons/CardGridSkeleton.jsx';
-import { useOverviewStats } from '@/hooks/useOverviewStats.js';
-import StatsGrid from '@/components/features/stats/StatsGrid.jsx';
+import QueryBoundary from "@/components/ui/QueryBoundary.jsx";
+import CardGridSkeleton from "@/components/skeletons/CardGridSkeleton.jsx";
+import { useOverviewStats } from "@/hooks/useOverviewStats.js";
+import StatsGrid from "@/components/features/stats/StatsGrid.jsx";
 
 // The four counters under the home page hero.
 export default function OverviewStats() {
   const query = useOverviewStats();
   return (
     <section className="stats-section">
-      <QueryBoundary query={query} skeleton={<CardGridSkeleton count={4} className="stats-grid" />}>
+      <QueryBoundary
+        query={query}
+        skeleton={<CardGridSkeleton count={4} className="stats-grid" />}
+      >
         {(data) => <StatsGrid stats={data.stats} />}
       </QueryBoundary>
     </section>

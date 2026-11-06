@@ -9,7 +9,12 @@
 export default function CompanyBadge({ company, hidden = false }) {
   return (
     <div className="company-badge" aria-hidden={hidden || undefined}>
-      <svg className="company-logo-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <svg
+        className="company-logo-svg"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
+      >
         <path d={company.logoPath} />
       </svg>
       <span className="company-name">{company.name}</span>

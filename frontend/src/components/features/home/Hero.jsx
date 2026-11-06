@@ -4,9 +4,9 @@
  * Used by: pages/HomePage
  * Talks to: Button, GlassCard, constants/routes.js
  */
-import Button from '@/components/ui/Button.jsx';
-import GlassCard from '@/components/ui/GlassCard.jsx';
-import { ROUTES } from '@/constants/routes.js';
+import Button from "@/components/ui/Button.jsx";
+import GlassCard from "@/components/ui/GlassCard.jsx";
+import { ROUTES } from "@/constants/routes.js";
 
 // The home page's opening section: headline, two buttons and the terrain panel.
 export default function Hero() {
@@ -22,8 +22,8 @@ export default function Hero() {
           <span className="text-glow">CREATIVE_PARK</span>
         </h1>
         <p className="body-md hero-description">
-          The ON_SIGHT hub for NIT Sikkim engineering student groups, technical innovation labs,
-          active project teams, and alumni networks.
+          The ON_SIGHT hub for NIT Sikkim engineering student groups, technical
+          innovation labs, active project teams, and alumni networks.
         </p>
         <div className="hero-actions">
           <Button to={ROUTES.CLUBS}>EXPLORE_CLUBS</Button>

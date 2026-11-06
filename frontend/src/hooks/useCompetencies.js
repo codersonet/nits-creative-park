@@ -4,9 +4,9 @@
  * Used by: EventsPage
  * Talks to: competency.service.js, @tanstack/react-query
  */
-import { useQuery } from '@tanstack/react-query';
-import { QUERY_KEYS } from '@/constants/query-keys.js';
-import { getCompetencies } from '@/services/competency.service.js';
+import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "@/constants/query-keys.js";
+import { getCompetencies } from "@/services/competency.service.js";
 
 // Returns the query result (data, isPending, isError, error, refetch).
 export function useCompetencies() {

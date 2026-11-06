@@ -4,11 +4,11 @@
  * Used by: pages/AlumniPage
  * Talks to: hooks/useAlumni.js, QueryBoundary, AlumniCard, CardGridSkeleton
  */
-import CardGridSkeleton from '@/components/skeletons/CardGridSkeleton.jsx';
-import EmptyState from '@/components/ui/EmptyState.jsx';
-import QueryBoundary from '@/components/ui/QueryBoundary.jsx';
-import { useAlumni } from '@/hooks/useAlumni.js';
-import AlumniCard from './AlumniCard.jsx';
+import CardGridSkeleton from "@/components/skeletons/CardGridSkeleton.jsx";
+import EmptyState from "@/components/ui/EmptyState.jsx";
+import QueryBoundary from "@/components/ui/QueryBoundary.jsx";
+import { useAlumni } from "@/hooks/useAlumni.js";
+import AlumniCard from "./AlumniCard.jsx";
 
 // The alumni page content: a grid of alumni cards.
 export default function AlumniSection() {

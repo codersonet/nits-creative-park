@@ -5,7 +5,7 @@
  * Used by: components/layout/Layout
  * Talks to: hooks/useOnlineStatus.js
  */
-import { useOnlineStatus } from '@/hooks/useOnlineStatus.js';
+import { useOnlineStatus } from "@/hooks/useOnlineStatus.js";
 
 // Shows nothing while online. role="status" makes screen readers announce it politely.
 export default function OfflineBanner() {

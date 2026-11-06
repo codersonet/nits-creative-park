@@ -4,8 +4,8 @@
  * Used by: AlumniSection
  * Talks to: GlassCard, utils/format.js
  */
-import GlassCard from '@/components/ui/GlassCard.jsx';
-import { formatClassLabel } from '@/utils/format.js';
+import GlassCard from "@/components/ui/GlassCard.jsx";
+import { formatClassLabel } from "@/utils/format.js";
 
 // One graduate: class year, name, role, short bio, branch, city and a LinkedIn link.
 export default function AlumniCard({ alumnus }) {

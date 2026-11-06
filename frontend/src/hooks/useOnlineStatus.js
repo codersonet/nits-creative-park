@@ -4,15 +4,15 @@
  * Used by: components/layout/OfflineBanner
  * Talks to: the browser's online/offline events
  */
-import { useSyncExternalStore } from 'react';
+import { useSyncExternalStore } from "react";
 
 // Lets React know when the connection goes away or comes back.
 function subscribe(onChange) {
-  window.addEventListener('online', onChange);
-  window.addEventListener('offline', onChange);
+  window.addEventListener("online", onChange);
+  window.addEventListener("offline", onChange);
   return () => {
-    window.removeEventListener('online', onChange);
-    window.removeEventListener('offline', onChange);
+    window.removeEventListener("online", onChange);
+    window.removeEventListener("offline", onChange);
   };
 }
 

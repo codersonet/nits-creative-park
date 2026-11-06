@@ -4,4 +4,4 @@
  * Used by: services/cache.service.js
  * Talks to: nothing
  */
-export const CACHE_PREFIX = 'v1';
+export const CACHE_PREFIX = "v1";

@@ -5,9 +5,9 @@
  * Used by: repositories/*.js, migrations/migrate.js, seeds/seed.js
  * Talks to: pg, config/env.js, logger/logger.js
  */
-import pg from 'pg';
-import { logger } from '../logger/logger.js';
-import { env } from './env.js';
+import pg from "pg";
+import { logger } from "../logger/logger.js";
+import { env } from "./env.js";
 
 const SLOW_QUERY_MS = 500;
 
@@ -23,8 +23,11 @@ export const pool = new pg.Pool({
 });
 
 // An idle connection can fail (for example after a database restart). Log it, do not crash.
-pool.on('error', (error) => {
-  logger.error({ err: error }, 'Unexpected error on an idle database connection');
+pool.on("error", (error) => {
+  logger.error(
+    { err: error },
+    "Unexpected error on an idle database connection",
+  );
 });
 
 // Runs one query. ALWAYS pass visitor-supplied values in "params" ($1, $2, ...), never inside "text".
@@ -33,7 +36,10 @@ export async function query(text, params = []) {
   const result = await pool.query(text, params);
   const elapsed = performance.now() - start;
   if (elapsed > SLOW_QUERY_MS) {
-    logger.warn({ ms: Math.round(elapsed), sql: text.replace(/\s+/g, ' ').slice(0, 120) }, 'Slow query');
+    logger.warn(
+      { ms: Math.round(elapsed), sql: text.replace(/\s+/g, " ").slice(0, 120) },
+      "Slow query",
+    );
   }
   return result;
 }

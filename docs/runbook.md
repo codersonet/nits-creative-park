@@ -1,15 +1,15 @@
 # Runbook
 
-How to run, check, build and ship the React frontend. Backend steps are marked as future work.
+How to run, check, build and ship the React frontend and Node.js backend.
 
 ## 1. First-time setup
 
 1. Put the new files in your repo exactly as laid out in `README_ARCHITECTURE.md`, Section 16. The `frontend/` folder must sit next to the old `styles.css`.
-2. Copy `frontend/.env.example` to `frontend/.env`.
-3. In `frontend/`, run `npm install`. This creates `package-lock.json`. Commit it (CI and Docker need it).
-4. Run `npm audit`. The package versions were pinned from memory and are old. Update any that have fixes.
-5. Run `npm run format` once, then commit. CI checks formatting and the files were not formatted by Prettier yet.
-6. Run `npm run lint` and `npm test`, and fix anything they report. These were written but never run.
+2. Copy `.env.example`, `backend/.env.example` and `frontend/.env.example` to their `.env` counterparts.
+3. Run `npm install` in both `backend/` and `frontend/`. Commit both generated lockfiles (CI and Docker need them).
+4. Run `npm audit --omit=dev --audit-level=high` in both application directories.
+5. Run `npm run format` once in both application directories, then commit. CI checks formatting.
+6. Run `npm run lint` and `npm test` in both application directories, and fix anything they report.
 
 ## 2. Everyday commands (run inside `frontend/`)
 
@@ -23,9 +23,21 @@ How to run, check, build and ship the React frontend. Backend steps are marked a
 | `npm run preview` | Serve the built files locally |
 | `npm run audit:prod` | Security audit of the packages that ship to visitors |
 
+Everyday backend commands (run inside `backend/`):
+
+| Command | What it does |
+|----------|--------------|
+| `npm run dev` | API with Node's watch mode at `http://localhost:4000` |
+| `npm test` | Unit tests and optional database-backed integration tests |
+| `npm run lint` | Backend lint rules |
+| `npm run format:check` | Check Prettier formatting |
+| `npm run migrate` | Apply database migrations |
+| `npm run seed` | Load starter content when `ALLOW_SEED=true` |
+| `npm run audit:prod` | Security audit of production dependencies |
+
 ## 3. Run with Docker
 
-From the repository root: `docker compose up --build`, then open `http://localhost:8080`. The image serves the site at the root (`VITE_BASE_PATH=/`). The compose hardening (read-only files, dropped privileges) has not been run yet, so if the container will not start, remove `read_only` and `tmpfs` first.
+From the repository root: `docker compose up --build`, then open `http://localhost:8080`. The image serves the site at the root (`VITE_BASE_PATH=/`). The Compose stack includes PostgreSQL, Redis, migrations, the API and Nginx frontend with read-only, least-privilege containers.
 
 ## 4. Settings (`.env`)
 

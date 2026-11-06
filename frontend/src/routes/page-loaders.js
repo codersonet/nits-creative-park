@@ -5,16 +5,16 @@
  * Used by: routes/AppRoutes.jsx, components/layout/Navbar.jsx
  * Talks to: constants/routes.js, pages/*.jsx
  */
-import { ROUTES } from '@/constants/routes.js';
+import { ROUTES } from "@/constants/routes.js";
 
 export const PAGE_LOADERS = Object.freeze({
-  [ROUTES.HOME]: () => import('@/pages/HomePage.jsx'),
-  [ROUTES.CLUBS]: () => import('@/pages/ClubsPage.jsx'),
-  [ROUTES.ALUMNI]: () => import('@/pages/AlumniPage.jsx'),
-  [ROUTES.COMPANIES]: () => import('@/pages/CompaniesPage.jsx'),
-  [ROUTES.EVENTS]: () => import('@/pages/EventsPage.jsx'),
-  [ROUTES.METRICS]: () => import('@/pages/MetricsPage.jsx'),
-  [ROUTES.CONTACT]: () => import('@/pages/ContactPage.jsx'),
+  [ROUTES.HOME]: () => import("@/pages/HomePage.jsx"),
+  [ROUTES.CLUBS]: () => import("@/pages/ClubsPage.jsx"),
+  [ROUTES.ALUMNI]: () => import("@/pages/AlumniPage.jsx"),
+  [ROUTES.COMPANIES]: () => import("@/pages/CompaniesPage.jsx"),
+  [ROUTES.EVENTS]: () => import("@/pages/EventsPage.jsx"),
+  [ROUTES.METRICS]: () => import("@/pages/MetricsPage.jsx"),
+  [ROUTES.CONTACT]: () => import("@/pages/ContactPage.jsx"),
 });
 
 // Starts downloading a page early. Calling it twice is harmless: the browser reuses the download.

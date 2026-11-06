@@ -5,13 +5,13 @@
  * Used by: npm test
  * Talks to: tests/setup.js
  */
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    environment: 'node',
-    include: ['tests/**/*.test.js'],
-    setupFiles: ['./tests/setup.js'],
+    environment: "node",
+    include: ["tests/**/*.test.js"],
+    setupFiles: ["./tests/setup.js"],
     // Integration tests share one database, so test files must not run at the same time.
     fileParallelism: false,
   },

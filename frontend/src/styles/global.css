@@ -7,18 +7,18 @@
  */
 
 /* Self-hosted fonts (mandate Section 8.3). Latin subset only, font-display: swap is built in. */
-@import '@fontsource/space-grotesk/latin-400.css';
-@import '@fontsource/space-grotesk/latin-500.css';
-@import '@fontsource/space-grotesk/latin-600.css';
-@import '@fontsource/space-grotesk/latin-700.css';
-@import '@fontsource/space-mono/latin-400.css';
-@import '@fontsource/space-mono/latin-700.css';
+@import "@fontsource/space-grotesk/latin-400.css";
+@import "@fontsource/space-grotesk/latin-500.css";
+@import "@fontsource/space-grotesk/latin-600.css";
+@import "@fontsource/space-grotesk/latin-700.css";
+@import "@fontsource/space-mono/latin-400.css";
+@import "@fontsource/space-mono/latin-700.css";
 
 /* The original design system, reused without copying. */
-@import '@legacy/styles.css';
+@import "@legacy/styles.css";
 
-@import './tokens.css';
-@import './components.css';
+@import "./tokens.css";
+@import "./components.css";
 
 /* Hides text visually but keeps it for screen readers (used for form labels). */
 .visually-hidden {

@@ -17,5 +17,5 @@ export function formatLpa(value) {
 
 // 1659 -> "1,659". Numbers below 1000 stay as they are, like the old counters.
 export function formatCount(value) {
-  return value >= 1000 ? value.toLocaleString('en-US') : String(value);
+  return value >= 1000 ? value.toLocaleString("en-US") : String(value);
 }

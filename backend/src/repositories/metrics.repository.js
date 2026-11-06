@@ -4,8 +4,12 @@
  * Used by: services/metrics.service.js
  * Talks to: config/database.js, models/metrics.model.js
  */
-import { query } from '../config/database.js';
-import { INFRASTRUCTURE_SELECT, PARTICIPATION_SELECT, STATS_SELECT } from '../models/metrics.model.js';
+import { query } from "../config/database.js";
+import {
+  INFRASTRUCTURE_SELECT,
+  PARTICIPATION_SELECT,
+  STATS_SELECT,
+} from "../models/metrics.model.js";
 
 // Gets the counters of one group: "overview" (homepage) or "campus" (metrics page).
 export async function findStats(group) {
@@ -26,6 +30,8 @@ export async function findParticipation() {
 
 // Gets the single uptime panel row, or null when it has not been filled in.
 export async function findInfrastructure() {
-  const result = await query(`SELECT ${INFRASTRUCTURE_SELECT} FROM infrastructure_status LIMIT 1`);
+  const result = await query(
+    `SELECT ${INFRASTRUCTURE_SELECT} FROM infrastructure_status LIMIT 1`,
+  );
   return result.rows[0] ?? null;
 }

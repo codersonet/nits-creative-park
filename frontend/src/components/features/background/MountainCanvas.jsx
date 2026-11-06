@@ -6,12 +6,17 @@
  * Used by: components/layout/Layout
  * Talks to: hooks/useReducedMotion.js, the #mountain-canvas rules in the legacy styles.css
  */
-import { useEffect, useRef } from 'react';
-import { useReducedMotion } from '@/hooks/useReducedMotion.js';
+import { useEffect, useRef } from "react";
+import { useReducedMotion } from "@/hooks/useReducedMotion.js";
 
 const MAX_PIXEL_RATIO = 2;
 const OFF_SCREEN = -1000;
-const STAR_COLORS = ['255, 255, 255', '240, 246, 255', '218, 238, 255', '245, 235, 255'];
+const STAR_COLORS = [
+  "255, 255, 255",
+  "240, 246, 255",
+  "218, 238, 255",
+  "245, 235, 255",
+];
 
 // Builds the list of stars with random position, size, speed and twinkle rhythm.
 function createStars(width, height) {
@@ -62,10 +67,34 @@ function drawStar(ctx, star, width, height, time) {
 // Draws the four mountain lines. Near the pointer each line is pushed upwards.
 function drawMountains(ctx, width, height, time, mouse) {
   const layers = [
-    { amplitude: 45, frequency: 0.0025, speed: 0.0018, base: height * 0.62, color: 'rgba(56, 189, 248, 0.2)' },
-    { amplitude: 75, frequency: 0.002, speed: 0.0012, base: height * 0.7, color: 'rgba(129, 140, 248, 0.25)' },
-    { amplitude: 110, frequency: 0.0016, speed: 0.0008, base: height * 0.78, color: 'rgba(192, 132, 252, 0.2)' },
-    { amplitude: 150, frequency: 0.0012, speed: 0.0005, base: height * 0.88, color: 'rgba(255, 255, 255, 0.12)' },
+    {
+      amplitude: 45,
+      frequency: 0.0025,
+      speed: 0.0018,
+      base: height * 0.62,
+      color: "rgba(56, 189, 248, 0.2)",
+    },
+    {
+      amplitude: 75,
+      frequency: 0.002,
+      speed: 0.0012,
+      base: height * 0.7,
+      color: "rgba(129, 140, 248, 0.25)",
+    },
+    {
+      amplitude: 110,
+      frequency: 0.0016,
+      speed: 0.0008,
+      base: height * 0.78,
+      color: "rgba(192, 132, 252, 0.2)",
+    },
+    {
+      amplitude: 150,
+      frequency: 0.0012,
+      speed: 0.0005,
+      base: height * 0.88,
+      color: "rgba(255, 255, 255, 0.12)",
+    },
   ];
   layers.forEach((layer) => {
     ctx.beginPath();
@@ -73,7 +102,8 @@ function drawMountains(ctx, width, height, time, mouse) {
     ctx.lineWidth = 1;
     for (let x = 0; x <= width; x += 18) {
       const distance = Math.hypot(x - mouse.x, layer.base - mouse.y);
-      const push = distance < 260 ? Math.sin((distance / 260) * Math.PI) * -35 : 0;
+      const push =
+        distance < 260 ? Math.sin((distance / 260) * Math.PI) * -35 : 0;
       const y =
         layer.base +
         Math.sin(x * layer.frequency + time * layer.speed) * layer.amplitude +
@@ -93,9 +123,14 @@ export default function MountainCanvas() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     const ratio = Math.min(window.devicePixelRatio || 1, MAX_PIXEL_RATIO);
-    const mouse = { x: OFF_SCREEN, y: OFF_SCREEN, targetX: OFF_SCREEN, targetY: OFF_SCREEN };
+    const mouse = {
+      x: OFF_SCREEN,
+      y: OFF_SCREEN,
+      targetX: OFF_SCREEN,
+      targetY: OFF_SCREEN,
+    };
     let width = window.innerWidth;
     let height = window.innerHeight;
     let stars = [];
@@ -128,7 +163,8 @@ export default function MountainCanvas() {
 
     // Asks the browser for the next frame, unless one is already waiting or the tab is hidden.
     function schedule() {
-      if (frameId === null && !document.hidden) frameId = requestAnimationFrame(frame);
+      if (frameId === null && !document.hidden)
+        frameId = requestAnimationFrame(frame);
     }
 
     // Pauses drawing while the tab is hidden and resumes when it comes back.
@@ -159,18 +195,20 @@ export default function MountainCanvas() {
       return undefined;
     }
     stars = createStars(width, height);
-    window.addEventListener('resize', resize, { passive: true });
-    window.addEventListener('pointermove', handlePointerMove, { passive: true });
-    window.addEventListener('pointerleave', handlePointerLeave);
-    document.addEventListener('visibilitychange', handleVisibility);
+    window.addEventListener("resize", resize, { passive: true });
+    window.addEventListener("pointermove", handlePointerMove, {
+      passive: true,
+    });
+    window.addEventListener("pointerleave", handlePointerLeave);
+    document.addEventListener("visibilitychange", handleVisibility);
     schedule();
 
     return () => {
       if (frameId !== null) cancelAnimationFrame(frameId);
-      window.removeEventListener('resize', resize);
-      window.removeEventListener('pointermove', handlePointerMove);
-      window.removeEventListener('pointerleave', handlePointerLeave);
-      document.removeEventListener('visibilitychange', handleVisibility);
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerleave", handlePointerLeave);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, [reducedMotion]);
 

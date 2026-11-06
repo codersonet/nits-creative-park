@@ -5,15 +5,15 @@
  * Used by: routes/content.routes.js
  * Talks to: the project, event, alumni, company, competency, placement and fest services
  */
-import * as alumniService from '../services/alumni.service.js';
-import * as companyService from '../services/company.service.js';
-import * as competencyService from '../services/competency.service.js';
-import * as eventService from '../services/event.service.js';
-import * as festService from '../services/fest.service.js';
-import * as placementService from '../services/placement.service.js';
-import * as projectService from '../services/project.service.js';
-import { asyncHandler } from '../utils/async-handler.js';
-import { ok } from '../utils/response.js';
+import * as alumniService from "../services/alumni.service.js";
+import * as companyService from "../services/company.service.js";
+import * as competencyService from "../services/competency.service.js";
+import * as eventService from "../services/event.service.js";
+import * as festService from "../services/fest.service.js";
+import * as placementService from "../services/placement.service.js";
+import * as projectService from "../services/project.service.js";
+import { asyncHandler } from "../utils/async-handler.js";
+import { ok } from "../utils/response.js";
 
 // Builds a controller that sends one page of a list. "listFn" is the service function to call.
 function pageController(listFn) {
@@ -26,7 +26,9 @@ export const listProjects = pageController(projectService.listProjects);
 export const listEvents = pageController(eventService.listEvents);
 export const listAlumni = pageController(alumniService.listAlumni);
 export const listCompanies = pageController(companyService.listCompanies);
-export const listCompetencies = pageController(competencyService.listCompetencies);
+export const listCompetencies = pageController(
+  competencyService.listCompetencies,
+);
 export const listFests = pageController(festService.listFests);
 
 // GET /placement-stats
