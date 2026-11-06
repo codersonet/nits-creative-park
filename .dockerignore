@@ -1,1 +1,33 @@
-.
+# Version control and local configuration
+.git/
+.github/
+**/.env
+**/.env.*
+**/.npmrc
+
+# Dependencies and generated output
+**/node_modules/
+**/dist/
+**/coverage/
+**/.vite/
+**/.cache/
+
+# Runtime data and logs
+backups/
+tmp/
+logs/
+**/*.log
+
+# Files not needed by either image build
+docs/
+scripts/
+infra/ci/
+infra/monitoring/
+backend/tests/
+frontend/src/tests/
+
+# Local and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
