@@ -5,10 +5,12 @@
  * Used by: app.js
  * Talks to: helmet
  */
-import helmet from 'helmet';
+import helmet from "helmet";
 
 export const securityMiddleware = helmet({
-  contentSecurityPolicy: { directives: { defaultSrc: ["'none'"], frameAncestors: ["'none'"] } },
+  contentSecurityPolicy: {
+    directives: { defaultSrc: ["'none'"], frameAncestors: ["'none'"] },
+  },
   // The API is public read data and may be called from the site on another address.
-  crossOriginResourcePolicy: { policy: 'cross-origin' },
+  crossOriginResourcePolicy: { policy: "cross-origin" },
 });

@@ -4,7 +4,13 @@
  * Used by: components/layout/Footer, the contact page
  * Talks to: react-icons (only the five icons listed below are bundled)
  */
-import { FaDiscord, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa6';
+import {
+  FaDiscord,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+} from "react-icons/fa6";
 
 const ICONS = {
   github: FaGithub,

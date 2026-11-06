@@ -4,15 +4,19 @@
  * Used by: pages (data errors), ErrorBoundary (crashes)
  * Talks to: Button, GlassCard, utils/api-error.js
  */
-import { ApiError } from '@/utils/api-error.js';
-import Button from './Button.jsx';
-import GlassCard from './GlassCard.jsx';
+import { ApiError } from "@/utils/api-error.js";
+import Button from "./Button.jsx";
+import GlassCard from "./GlassCard.jsx";
 
-const FALLBACK_MESSAGE = 'Something went wrong. Please try again.';
+const FALLBACK_MESSAGE = "Something went wrong. Please try again.";
 
 // SECURITY: only an ApiError message is shown, because the server wrote it to be safe for people.
 // Any other error text could contain internal details, so it is replaced by the fallback.
-export default function ErrorState({ title = 'Could not load this', error, onRetry }) {
+export default function ErrorState({
+  title = "Could not load this",
+  error,
+  onRetry,
+}) {
   const isApiError = error instanceof ApiError;
   return (
     <GlassCard className="state-card" role="alert">

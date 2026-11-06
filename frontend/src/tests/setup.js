@@ -5,9 +5,9 @@
  *        Also gives jsdom a matchMedia stand-in, because jsdom does not have one.
  * Talks to: @testing-library/jest-dom, @testing-library/react
  */
-import '@testing-library/jest-dom/vitest';
-import { cleanup } from '@testing-library/react';
-import { afterEach } from 'vitest';
+import "@testing-library/jest-dom/vitest";
+import { cleanup } from "@testing-library/react";
+import { afterEach } from "vitest";
 
 // WHY: without this, components from one test would still be on screen in the next one.
 afterEach(() => {

@@ -4,15 +4,15 @@
  * Used by: MountainCanvas, Marquee, card tilt, counters
  * Talks to: the browser's matchMedia
  */
-import { useSyncExternalStore } from 'react';
+import { useSyncExternalStore } from "react";
 
-const QUERY = '(prefers-reduced-motion: reduce)';
+const QUERY = "(prefers-reduced-motion: reduce)";
 
 // Lets React know when the visitor changes the setting.
 function subscribe(onChange) {
   const media = window.matchMedia(QUERY);
-  media.addEventListener('change', onChange);
-  return () => media.removeEventListener('change', onChange);
+  media.addEventListener("change", onChange);
+  return () => media.removeEventListener("change", onChange);
 }
 
 // Reads the current setting.

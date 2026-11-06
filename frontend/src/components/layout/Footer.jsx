@@ -4,10 +4,10 @@
  * Used by: components/layout/Layout
  * Talks to: react-router-dom, constants/footer-links.js, constants/social-links.js, SocialIcon
  */
-import { Link } from 'react-router-dom';
-import SocialIcon from '@/components/ui/SocialIcon.jsx';
-import { FOOTER_LINK_COLUMNS } from '@/constants/footer-links.js';
-import { SOCIAL_LINKS } from '@/constants/social-links.js';
+import { Link } from "react-router-dom";
+import SocialIcon from "@/components/ui/SocialIcon.jsx";
+import { FOOTER_LINK_COLUMNS } from "@/constants/footer-links.js";
+import { SOCIAL_LINKS } from "@/constants/social-links.js";
 
 // The site footer: brand, link columns, newsletter box, social icons and copyright.
 export default function Footer() {
@@ -16,14 +16,17 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-brand">
           <span className="brand-title text-glow">NIT_SIKKIM</span>
-          <p className="label-mono text-muted">NATIONAL INSTITUTE OF TECHNOLOGY SIKKIM</p>
+          <p className="label-mono text-muted">
+            NATIONAL INSTITUTE OF TECHNOLOGY SIKKIM
+          </p>
           <p className="body-md">
-            The pioneering high-altitude engineering and innovation hub nestled in the Himalayas.
+            The pioneering high-altitude engineering and innovation hub nestled
+            in the Himalayas.
           </p>
         </div>
 
         <div className="footer-links">
-          <span className="label-mono text-muted">// TERMINAL_LINKS</span>
+          <span className="label-mono text-muted">{"// TERMINAL_LINKS"}</span>
           <div className="footer-links-grid">
             {FOOTER_LINK_COLUMNS.map((column) => (
               <div className="footer-links-col" key={column[0].path}>
@@ -38,10 +41,10 @@ export default function Footer() {
         </div>
 
         <div className="footer-newsletter">
-          <span className="label-mono text-muted">// NETWORK_SYNC</span>
+          <span className="label-mono text-muted">{"// NETWORK_SYNC"}</span>
           <p className="body-md">
-            Establish connection for real-time telemetry, campus updates, and alumni networking
-            opportunities.
+            Establish connection for real-time telemetry, campus updates, and
+            alumni networking opportunities.
           </p>
           {/* PLACEHOLDER: there is no newsletter service yet, so the form is switched off.
               The old page pretended to subscribe people, which would have lost their emails. */}

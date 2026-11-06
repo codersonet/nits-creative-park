@@ -5,19 +5,29 @@
  * Used by: FeaturedFestSection
  * Talks to: GlassCard, Button, DateBadge, react-icons, utils/site-url.js
  */
-import { FaLocationDot, FaTrophy, FaUsers } from 'react-icons/fa6';
-import Button from '@/components/ui/Button.jsx';
-import GlassCard from '@/components/ui/GlassCard.jsx';
-import { resolveSiteUrl, resolveSrcSet } from '@/utils/site-url.js';
-import DateBadge from './DateBadge.jsx';
+import { FaLocationDot, FaTrophy, FaUsers } from "react-icons/fa6";
+import Button from "@/components/ui/Button.jsx";
+import GlassCard from "@/components/ui/GlassCard.jsx";
+import { resolveSiteUrl, resolveSrcSet } from "@/utils/site-url.js";
+import DateBadge from "./DateBadge.jsx";
 
-const FACT_ICONS = { trophy: FaTrophy, users: FaUsers, location: FaLocationDot };
+const FACT_ICONS = {
+  trophy: FaTrophy,
+  users: FaUsers,
+  location: FaLocationDot,
+};
 
 // "fest" is the featured fest object from the fest service.
 export default function FestHero({ fest }) {
-  const badge = fest.registrationOpen ? `${fest.status} // REGISTRATIONS_OPEN` : fest.status;
+  const badge = fest.registrationOpen
+    ? `${fest.status} // REGISTRATIONS_OPEN`
+    : fest.status;
   return (
-    <section className="grid-container" id="featured-fest" aria-label="Featured fest">
+    <section
+      className="grid-container"
+      id="featured-fest"
+      aria-label="Featured fest"
+    >
       <GlassCard className="fest-hero-card">
         <div className="fest-hero-image-wrapper">
           <div className="fest-hero-badge">
@@ -33,20 +43,25 @@ export default function FestHero({ fest }) {
             height={fest.image.height}
             alt={fest.image.alt}
             className="fest-hero-image"
-            fetchpriority="high"
+            fetchPriority="high"
           />
         </div>
 
         <div>
           <div className="card-header">
-            <span className="label-mono accent-cyan">// {fest.tagline}</span>
+            <span className="label-mono accent-cyan">
+              {"// "}
+              {fest.tagline}
+            </span>
             <DateBadge startDate={fest.startDate} endDate={fest.endDate} />
           </div>
           <h2 className="headline-lg fest-title">{fest.name}</h2>
           <p className="body-md fest-description">{fest.description}</p>
 
           <div className="fest-block">
-            <span className="label-mono text-muted block-label">// EXCLUSIVITY</span>
+            <span className="label-mono text-muted block-label">
+              {"// EXCLUSIVITY"}
+            </span>
             <div className="alumni-tags">
               {fest.highlights.map((item) => (
                 <span className="chip" key={item}>
@@ -61,14 +76,17 @@ export default function FestHero({ fest }) {
               const Icon = FACT_ICONS[icon];
               return (
                 <span className="chip" key={label}>
-                  {Icon && <Icon aria-hidden="true" focusable="false" />} {label}
+                  {Icon && <Icon aria-hidden="true" focusable="false" />}{" "}
+                  {label}
                 </span>
               );
             })}
           </div>
 
           <div className="hero-actions">
-            <Button href={fest.primaryAction.url}>{fest.primaryAction.label} ↗</Button>
+            <Button href={fest.primaryAction.url}>
+              {fest.primaryAction.label} ↗
+            </Button>
             <Button variant="ghost" href={fest.secondaryAction.url}>
               {fest.secondaryAction.label}
             </Button>

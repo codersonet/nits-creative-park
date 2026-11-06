@@ -6,20 +6,40 @@
  * Talks to: nothing
  */
 
-const CONTROL_CHARS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g;
 const EMAIL_SHAPE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function removeControlChars(text) {
+  return [...text]
+    .filter((character) => {
+      const code = character.charCodeAt(0);
+      return !(
+        (code >= 0 && code <= 8) ||
+        code === 11 ||
+        code === 12 ||
+        (code >= 14 && code <= 31) ||
+        code === 127
+      );
+    })
+    .join("");
+}
 
 // Reads a whole number. A missing value gives the fallback. Arrays and other types are rejected.
 export function readInteger(errors, field, raw, { min, max, fallback }) {
-  if (raw === undefined || raw === '') return fallback;
-  const text = typeof raw === 'string' || typeof raw === 'number' ? String(raw).trim() : '';
+  if (raw === undefined || raw === "") return fallback;
+  const text =
+    typeof raw === "string" || typeof raw === "number"
+      ? String(raw).trim()
+      : "";
   if (!/^\d{1,9}$/.test(text)) {
     errors.push({ field, message: `${field} must be a whole number.` });
     return fallback;
   }
   const value = Number(text);
   if (value < min || value > max) {
-    errors.push({ field, message: `${field} must be between ${min} and ${max}.` });
+    errors.push({
+      field,
+      message: `${field} must be between ${min} and ${max}.`,
+    });
     return fallback;
   }
   return value;
@@ -27,9 +47,12 @@ export function readInteger(errors, field, raw, { min, max, fallback }) {
 
 // Reads a choice from an allowed list. A missing value gives undefined (the filter is off).
 export function readChoice(errors, field, raw, allowed) {
-  if (raw === undefined || raw === '') return undefined;
-  if (typeof raw !== 'string' || !allowed.includes(raw)) {
-    errors.push({ field, message: `${field} must be one of: ${allowed.join(', ')}.` });
+  if (raw === undefined || raw === "") return undefined;
+  if (typeof raw !== "string" || !allowed.includes(raw)) {
+    errors.push({
+      field,
+      message: `${field} must be one of: ${allowed.join(", ")}.`,
+    });
     return undefined;
   }
   return raw;
@@ -37,17 +60,24 @@ export function readChoice(errors, field, raw, allowed) {
 
 // Reads text: trims it, removes control characters, and checks the length.
 // "multiline" keeps line breaks (for messages); otherwise they become spaces (for names).
-export function readText(errors, field, raw, { min = 1, max, multiline = false }) {
-  if (typeof raw !== 'string') {
+export function readText(
+  errors,
+  field,
+  raw,
+  { min = 1, max, multiline = false },
+) {
+  if (typeof raw !== "string") {
     errors.push({ field, message: `${field} is required.` });
-    return '';
+    return "";
   }
-  const cleaned = raw
-    .replace(multiline ? /\r\n?/g : /[\r\n\t]+/g, multiline ? '\n' : ' ')
-    .replace(CONTROL_CHARS, '')
-    .trim();
+  const cleaned = removeControlChars(
+    raw.replace(multiline ? /\r\n?/g : /[\r\n\t]+/g, multiline ? "\n" : " "),
+  ).trim();
   if (cleaned.length < min || cleaned.length > max) {
-    errors.push({ field, message: `${field} must be ${min} to ${max} characters.` });
+    errors.push({
+      field,
+      message: `${field} must be ${min} to ${max} characters.`,
+    });
   }
   return cleaned;
 }

@@ -6,12 +6,12 @@
  * Used by: every read service
  * Talks to: config/cache.js, config/env.js, logger/logger.js, utils/cache-key.js, utils/pagination.js
  */
-import { getRedis, isCacheReady } from '../config/cache.js';
-import { env } from '../config/env.js';
-import { CACHE_PREFIX } from '../constants/cache.js';
-import { logger } from '../logger/logger.js';
-import { cacheKey } from '../utils/cache-key.js';
-import { toPage } from '../utils/pagination.js';
+import { getRedis, isCacheReady } from "../config/cache.js";
+import { env } from "../config/env.js";
+import { CACHE_PREFIX } from "../constants/cache.js";
+import { logger } from "../logger/logger.js";
+import { cacheKey } from "../utils/cache-key.js";
+import { toPage } from "../utils/pagination.js";
 
 // Adds up to 10% random time to the lifetime, so many entries do not all expire together.
 function lifetimeWithJitter(seconds) {
@@ -42,7 +42,7 @@ export function createCache({ getClient, isReady, ttlSeconds, log }) {
         const hit = await redis.get(key);
         if (hit !== null) return JSON.parse(hit);
       } catch (error) {
-        log.warn({ err: error, key }, 'Cache read failed, using the database');
+        log.warn({ err: error, key }, "Cache read failed, using the database");
       }
     }
 
@@ -50,8 +50,8 @@ export function createCache({ getClient, isReady, ttlSeconds, log }) {
 
     if (redis) {
       redis
-        .set(key, JSON.stringify(value), 'EX', lifetimeWithJitter(ttlSeconds))
-        .catch((error) => log.warn({ err: error, key }, 'Cache write failed'));
+        .set(key, JSON.stringify(value), "EX", lifetimeWithJitter(ttlSeconds))
+        .catch((error) => log.warn({ err: error, key }, "Cache write failed"));
     }
     return value;
   }
@@ -70,7 +70,10 @@ export function createCache({ getClient, isReady, ttlSeconds, log }) {
     const redis = isReady() ? getClient() : null;
     if (!redis) return 0;
     let removed = 0;
-    for await (const keys of redis.scanStream({ match: `${CACHE_PREFIX}:*`, count: 100 })) {
+    for await (const keys of redis.scanStream({
+      match: `${CACHE_PREFIX}:*`,
+      count: 100,
+    })) {
       if (keys.length > 0) removed += await redis.del(...keys);
     }
     return removed;

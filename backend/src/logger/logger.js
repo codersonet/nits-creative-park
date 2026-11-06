@@ -5,22 +5,22 @@
  * Used by: every file that needs to log
  * Talks to: pino, config/env.js
  */
-import pino from 'pino';
-import { env } from '../config/env.js';
+import pino from "pino";
+import { env } from "../config/env.js";
 
 export const logger = pino({
   level: env.logLevel,
-  base: { service: 'creative-park-api' },
+  base: { service: "creative-park-api" },
   timestamp: pino.stdTimeFunctions.isoTime,
   redact: {
     paths: [
-      'req.headers.authorization',
-      'req.headers.cookie',
-      '*.email',
-      '*.message',
-      '*.name',
-      '*.password',
+      "req.headers.authorization",
+      "req.headers.cookie",
+      "*.email",
+      "*.message",
+      "*.name",
+      "*.password",
     ],
-    censor: '[hidden]',
+    censor: "[hidden]",
   },
 });

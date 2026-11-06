@@ -4,7 +4,7 @@
  * Used by: services/contact.service.js, jobs/purgeContactMessages.job.js
  * Talks to: config/database.js
  */
-import { query } from '../config/database.js';
+import { query } from "../config/database.js";
 
 // Saves one message. All values are passed as parameters.
 export async function insertMessage({ name, email, skills, subject, message }) {

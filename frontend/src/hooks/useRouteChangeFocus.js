@@ -5,8 +5,8 @@
  * Used by: components/layout/Layout
  * Talks to: react-router-dom
  */
-import { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 // "ref" points at the <main> element. Nothing happens on the very first load.
 export function useRouteChangeFocus(ref) {

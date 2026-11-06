@@ -4,13 +4,13 @@
  * Used by: MetricsDashboard
  * Talks to: GlassCard
  */
-import GlassCard from '@/components/ui/GlassCard.jsx';
+import GlassCard from "@/components/ui/GlassCard.jsx";
 
 // "data" is { title, description, gridPowerUptimePercent, nodeLatencyMs }.
 export default function InfrastructureCard({ data }) {
   return (
     <GlassCard>
-      <span className="label-mono">// HARDWARE_SPECS</span>
+      <span className="label-mono">{"// HARDWARE_SPECS"}</span>
       <h3 className="headline-lg panel-title">{data.title}</h3>
       <p className="body-md">{data.description}</p>
       <div className="hud-footer panel-footer">

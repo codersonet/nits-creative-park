@@ -4,9 +4,9 @@
  * Used by: ProjectsBoard
  * Talks to: Modal, Button, constants/routes.js
  */
-import Button from '@/components/ui/Button.jsx';
-import Modal from '@/components/ui/Modal.jsx';
-import { ROUTES } from '@/constants/routes.js';
+import Button from "@/components/ui/Button.jsx";
+import Modal from "@/components/ui/Modal.jsx";
+import { ROUTES } from "@/constants/routes.js";
 
 // "project" is the chosen project, or null when nothing is chosen (dialog closed).
 export default function ProjectModal({ project, onClose }) {
@@ -14,8 +14,8 @@ export default function ProjectModal({ project, onClose }) {
     <Modal
       open={project !== null}
       onClose={onClose}
-      eyebrow={project ? `${project.club} // TECH_SPEC` : ''}
-      title={project?.title ?? ''}
+      eyebrow={project ? `${project.club} // TECH_SPEC` : ""}
+      title={project?.title ?? ""}
     >
       {project && (
         <>
@@ -23,7 +23,9 @@ export default function ProjectModal({ project, onClose }) {
           <div className="modal-metrics">
             <div>
               <span className="label-mono">TECH_STACK</span>
-              <p className="label-mono text-primary">{project.stack.join(', ')}</p>
+              <p className="label-mono text-primary">
+                {project.stack.join(", ")}
+              </p>
             </div>
             <div>
               <span className="label-mono">STATUS</span>

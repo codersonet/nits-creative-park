@@ -6,8 +6,8 @@
  * Talks to: nothing
  */
 export const placementStatsMock = {
-  academicYear: '2025-2026',
+  academicYear: "2025-2026",
   highestDomesticPackageLpa: 33.46,
-  highestPackageRole: 'SOFTWARE DEVELOPMENT ROLE',
+  highestPackageRole: "SOFTWARE DEVELOPMENT ROLE",
   averageBtechPackageLpa: 8.32,
 };

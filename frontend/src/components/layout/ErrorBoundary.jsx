@@ -4,8 +4,8 @@
  * Used by: components/layout/Layout (around every page)
  * Talks to: ErrorState
  */
-import { Component } from 'react';
-import ErrorState from '@/components/ui/ErrorState.jsx';
+import { Component } from "react";
+import ErrorState from "@/components/ui/ErrorState.jsx";
 
 // React only supports crash catching in class components, so this is one on purpose.
 export default class ErrorBoundary extends Component {
@@ -18,7 +18,7 @@ export default class ErrorBoundary extends Component {
 
   // Logs the crash for developers. Visitors only see the friendly message.
   componentDidCatch(error, info) {
-    console.error('A page crashed:', error, info.componentStack);
+    console.error("A page crashed:", error, info.componentStack);
   }
 
   // The "try again" button: show the page again.
@@ -28,7 +28,12 @@ export default class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <ErrorState title="This page hit a problem" onRetry={this.handleRetry} />;
+      return (
+        <ErrorState
+          title="This page hit a problem"
+          onRetry={this.handleRetry}
+        />
+      );
     }
     return this.props.children;
   }

@@ -4,9 +4,9 @@
  * Used by: ProjectsBoard
  * Talks to: GlassCard, ProgressBar, Button
  */
-import Button from '@/components/ui/Button.jsx';
-import GlassCard from '@/components/ui/GlassCard.jsx';
-import ProgressBar from '@/components/ui/ProgressBar.jsx';
+import Button from "@/components/ui/Button.jsx";
+import GlassCard from "@/components/ui/GlassCard.jsx";
+import ProgressBar from "@/components/ui/ProgressBar.jsx";
 
 // "onOpen" is called with the project when the visitor presses VIEW_SPECS.
 export default function ProjectCard({ project, onOpen }) {
@@ -14,7 +14,10 @@ export default function ProjectCard({ project, onOpen }) {
     <GlassCard as="article" className="project-card">
       <div>
         <div className="card-header">
-          <span className="label-mono text-muted">// {project.club}</span>
+          <span className="label-mono text-muted">
+            {"// "}
+            {project.club}
+          </span>
           <span className="label-mono accent-cyan">[{project.status}]</span>
         </div>
         <h3 className="card-title">{project.title}</h3>
@@ -26,7 +29,10 @@ export default function ProjectCard({ project, onOpen }) {
             <span className="label-mono">OPTIMIZATION_INDEX</span>
             <span className="label-mono text-primary">{project.progress}%</span>
           </div>
-          <ProgressBar percent={project.progress} label={`${project.title} progress`} />
+          <ProgressBar
+            percent={project.progress}
+            label={`${project.title} progress`}
+          />
         </div>
         <div className="card-footer">
           <span className="label-mono text-muted">{project.stack[0]}</span>

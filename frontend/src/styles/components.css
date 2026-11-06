@@ -61,42 +61,107 @@
 }
 
 /* Accent text colours, chosen by the "accent" value in the data. */
-.accent-cyan { color: var(--wwdc-cyan); }
-.accent-purple { color: var(--wwdc-purple); }
-.accent-emerald { color: var(--wwdc-emerald); }
-.accent-amber { color: var(--accent-amber); }
+.accent-cyan {
+  color: var(--wwdc-cyan);
+}
+.accent-purple {
+  color: var(--wwdc-purple);
+}
+.accent-emerald {
+  color: var(--wwdc-emerald);
+}
+.accent-amber {
+  color: var(--accent-amber);
+}
 
 /* Small spacing helpers that replace the inline styles of the old pages. */
-.card-header-flush { margin: 0; }
-.block-label { display: block; margin-bottom: 8px; }
-.section-header-flush { padding: 0; margin-bottom: 28px; }
-.section-title { font-size: 2rem; margin-top: 4px; }
-.btn-small { padding: 6px 14px; font-size: 0.72rem; }
+.card-header-flush {
+  margin: 0;
+}
+.block-label {
+  display: block;
+  margin-bottom: 8px;
+}
+.section-header-flush {
+  padding: 0;
+  margin-bottom: 28px;
+}
+.section-title {
+  font-size: 2rem;
+  margin-top: 4px;
+}
+.btn-small {
+  padding: 6px 14px;
+  font-size: 0.72rem;
+}
 
 /* Events page: fest hero, fest cards, competency cards, event cards. */
-.fest-title { margin-bottom: 12px; }
-.fest-description { margin-bottom: 20px; }
-.fest-block { margin-bottom: 24px; }
-.fest-facts { margin-bottom: 28px; }
-.fest-card-text { font-size: 0.92rem; }
-.fest-card-bottom { margin-top: 20px; }
-.fest-card-tags { margin-bottom: 16px; }
-.fest-card-image-empty {
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(192, 132, 252, 0.12));
+.fest-title {
+  margin-bottom: 12px;
 }
-.competency-percent { font-size: 1.5rem; }
-.competency-title { font-size: 1.2rem; margin: 0; }
-.competency-text { font-size: 0.88rem; }
-.event-card-bottom { margin-top: 24px; }
-.event-card-tags { margin-bottom: 16px; }
+.fest-description {
+  margin-bottom: 20px;
+}
+.fest-block {
+  margin-bottom: 24px;
+}
+.fest-facts {
+  margin-bottom: 28px;
+}
+.fest-card-text {
+  font-size: 0.92rem;
+}
+.fest-card-bottom {
+  margin-top: 20px;
+}
+.fest-card-tags {
+  margin-bottom: 16px;
+}
+.fest-card-image-empty {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.12),
+    rgba(192, 132, 252, 0.12)
+  );
+}
+.competency-percent {
+  font-size: 1.5rem;
+}
+.competency-title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+.competency-text {
+  font-size: 0.88rem;
+}
+.event-card-bottom {
+  margin-top: 24px;
+}
+.event-card-tags {
+  margin-bottom: 16px;
+}
 
 /* Companies and metrics pages. */
-.placement-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.stat-title { font-size: 1.5rem; margin-top: 8px; }
-.stat-value { margin: 12px 0; }
-.stats-row { margin-bottom: 32px; }
-.metrics-columns { grid-template-columns: 1fr 1fr; }
-.panel-title { font-size: 1.5rem; margin: 12px 0; }
+.placement-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.stat-title {
+  font-size: 1.5rem;
+  margin-top: 8px;
+}
+.stat-value {
+  margin: 12px 0;
+}
+.stats-row {
+  margin-bottom: 32px;
+}
+.metrics-columns {
+  grid-template-columns: 1fr 1fr;
+}
+.panel-title {
+  font-size: 1.5rem;
+  margin: 12px 0;
+}
 .panel-footer {
   margin-top: 32px;
   padding-top: 16px;
@@ -104,20 +169,52 @@
 }
 
 @media (max-width: 768px) {
-  .metrics-columns { grid-template-columns: 1fr; }
+  .metrics-columns {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Contact page. */
-.skills-note { font-size: 0.88rem; margin-bottom: 12px; }
-.node-label { font-size: 0.65rem; }
-.status-title { font-size: 1.05rem; margin-top: 2px; }
-.bar-title { font-size: 0.68rem; }
-.form-submit { width: 100%; padding: 16px; }
-.form-error { color: #f87171; font-family: var(--font-mono); font-size: 0.78rem; }
-.form-success { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
-.telemetry-right { text-align: right; }
-.showcase-text { position: relative; z-index: 2; }
-.showcase-title { font-size: 1.25rem; margin-top: 4px; }
+.skills-note {
+  font-size: 0.88rem;
+  margin-bottom: 12px;
+}
+.node-label {
+  font-size: 0.65rem;
+}
+.status-title {
+  font-size: 1.05rem;
+  margin-top: 2px;
+}
+.bar-title {
+  font-size: 0.68rem;
+}
+.form-submit {
+  width: 100%;
+  padding: 16px;
+}
+.form-error {
+  color: #f87171;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.telemetry-right {
+  text-align: right;
+}
+.showcase-text {
+  position: relative;
+  z-index: 2;
+}
+.showcase-title {
+  font-size: 1.25rem;
+  margin-top: 4px;
+}
 
 /* Offline message (mandate Section 8.4). Sits above the page so it is never missed. */
 .offline-banner {

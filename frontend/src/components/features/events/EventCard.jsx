@@ -4,10 +4,10 @@
  * Used by: EventsBoard
  * Talks to: GlassCard, Button, DateBadge, utils/class-names.js
  */
-import Button from '@/components/ui/Button.jsx';
-import GlassCard from '@/components/ui/GlassCard.jsx';
-import { cx } from '@/utils/class-names.js';
-import DateBadge from './DateBadge.jsx';
+import Button from "@/components/ui/Button.jsx";
+import GlassCard from "@/components/ui/GlassCard.jsx";
+import { cx } from "@/utils/class-names.js";
+import DateBadge from "./DateBadge.jsx";
 
 // One scheduled event: date, type, title, description, topics, organizer and an action.
 export default function EventCard({ event }) {
@@ -17,7 +17,10 @@ export default function EventCard({ event }) {
       <div>
         <div className="card-header">
           <DateBadge startDate={event.startDate} endDate={event.endDate} />
-          <span className={cx('label-mono', `accent-${event.accent}`)}>// {event.kind}</span>
+          <span className={cx("label-mono", `accent-${event.accent}`)}>
+            {"// "}
+            {event.kind}
+          </span>
         </div>
         <h3 className="card-title">{event.title}</h3>
         <p className="body-md">{event.description}</p>
@@ -31,7 +34,9 @@ export default function EventCard({ event }) {
           ))}
         </div>
         <div className="card-footer">
-          <span className="label-mono text-muted">ORGANIZER: {event.organizer}</span>
+          <span className="label-mono text-muted">
+            ORGANIZER: {event.organizer}
+          </span>
           {/* When the event has no real link yet, the button says so instead of pretending to work. */}
           {action.url ? (
             <Button variant={action.variant} href={action.url}>

@@ -4,8 +4,8 @@
  * Used by: every page
  * Talks to: react-helmet-async, constants/env.js (SITE_URL)
  */
-import { Helmet } from 'react-helmet-async';
-import { SITE_URL } from '@/constants/env.js';
+import { Helmet } from "react-helmet-async";
+import { SITE_URL } from "@/constants/env.js";
 
 // "path" is the page's route, for example "/clubs". It becomes the canonical address.
 // "noIndex" tells search engines to skip the page (used for the not-found page).
@@ -15,7 +15,11 @@ export default function SeoHead({ title, description, path, noIndex = false }) {
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      {noIndex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={url} />}
+      {noIndex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <link rel="canonical" href={url} />
+      )}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />

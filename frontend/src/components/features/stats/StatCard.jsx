@@ -4,9 +4,9 @@
  * Used by: StatsGrid
  * Talks to: GlassCard, hooks/useCountUp.js, utils/format.js
  */
-import GlassCard from '@/components/ui/GlassCard.jsx';
-import { useCountUp } from '@/hooks/useCountUp.js';
-import { formatCount } from '@/utils/format.js';
+import GlassCard from "@/components/ui/GlassCard.jsx";
+import { useCountUp } from "@/hooks/useCountUp.js";
+import { formatCount } from "@/utils/format.js";
 
 // Screen readers hear only the final number, not every step of the counting animation.
 export default function StatCard({ label, value, caption }) {

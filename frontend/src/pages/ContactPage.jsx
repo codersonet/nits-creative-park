@@ -4,16 +4,16 @@
  * Used by: routes/AppRoutes.jsx (path "/contact")
  * Talks to: SeoHead, ContactSection, ContactShowcase, hooks/usePageClass.js, legacy contact.css
  */
-import '@legacy/stylesheets/contact.css';
-import ContactSection from '@/components/features/contact/ContactSection.jsx';
-import ContactShowcase from '@/components/features/contact/ContactShowcase.jsx';
-import SeoHead from '@/components/layout/SeoHead.jsx';
-import { ROUTES } from '@/constants/routes.js';
-import { usePageClass } from '@/hooks/usePageClass.js';
+import "@legacy/stylesheets/contact.css";
+import ContactSection from "@/components/features/contact/ContactSection.jsx";
+import ContactShowcase from "@/components/features/contact/ContactShowcase.jsx";
+import SeoHead from "@/components/layout/SeoHead.jsx";
+import { ROUTES } from "@/constants/routes.js";
+import { usePageClass } from "@/hooks/usePageClass.js";
 
 // The contact page: skill picker, links, the terminal-style form and the picture cards.
 export default function ContactPage() {
-  usePageClass('page-contact');
+  usePageClass("page-contact");
   return (
     <>
       <SeoHead
@@ -31,8 +31,9 @@ export default function ContactPage() {
           <span className="text-glow">CONNECTION</span>
         </h1>
         <p className="body-md">
-          Direct high-priority communication link to NIT Sikkim Engineering Labs, technical project
-          leads, innovation cells, and campus administration.
+          Direct high-priority communication link to NIT Sikkim Engineering
+          Labs, technical project leads, innovation cells, and campus
+          administration.
         </p>
       </section>
       <ContactSection />

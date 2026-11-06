@@ -4,7 +4,7 @@
  * Used by: ProjectsBoard, EventsBoard
  * Talks to: utils/class-names.js
  */
-import { cx } from '@/utils/class-names.js';
+import { cx } from "@/utils/class-names.js";
 
 // "options" come from constants/categories.js. "label" names the group for screen readers.
 export default function FilterBar({ options, value, onChange, label }) {
@@ -16,7 +16,7 @@ export default function FilterBar({ options, value, onChange, label }) {
           <button
             key={option.value}
             type="button"
-            className={cx('filter-btn', isActive && 'active')}
+            className={cx("filter-btn", isActive && "active")}
             aria-pressed={isActive}
             onClick={() => onChange(option.value)}
           >

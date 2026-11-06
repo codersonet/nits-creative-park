@@ -4,17 +4,17 @@
  * Used by: routes/AppRoutes.jsx (path "/companies")
  * Talks to: SeoHead, PageHeader, PartnersMarquee, PlacementStats, hooks/usePageClass.js, legacy companies.css
  */
-import '@legacy/stylesheets/companies.css';
-import PartnersMarquee from '@/components/features/companies/PartnersMarquee.jsx';
-import PlacementStats from '@/components/features/companies/PlacementStats.jsx';
-import SeoHead from '@/components/layout/SeoHead.jsx';
-import PageHeader from '@/components/ui/PageHeader.jsx';
-import { ROUTES } from '@/constants/routes.js';
-import { usePageClass } from '@/hooks/usePageClass.js';
+import "@legacy/stylesheets/companies.css";
+import PartnersMarquee from "@/components/features/companies/PartnersMarquee.jsx";
+import PlacementStats from "@/components/features/companies/PlacementStats.jsx";
+import SeoHead from "@/components/layout/SeoHead.jsx";
+import PageHeader from "@/components/ui/PageHeader.jsx";
+import { ROUTES } from "@/constants/routes.js";
+import { usePageClass } from "@/hooks/usePageClass.js";
 
 // Visiting recruiters: the scrolling partner strip and the placement figures.
 export default function CompaniesPage() {
-  usePageClass('page-companies');
+  usePageClass("page-companies");
   return (
     <>
       <SeoHead

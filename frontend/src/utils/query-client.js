@@ -4,8 +4,8 @@
  * Used by: main.jsx (provider)
  * Talks to: @tanstack/react-query, api-error.js
  */
-import { QueryClient } from '@tanstack/react-query';
-import { isRetryable } from './api-error.js';
+import { QueryClient } from "@tanstack/react-query";
+import { isRetryable } from "./api-error.js";
 
 const FIVE_MINUTES = 5 * 60 * 1000;
 const THIRTY_MINUTES = 30 * 60 * 1000;

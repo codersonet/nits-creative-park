@@ -4,7 +4,7 @@
  * Used by: every page component
  * Talks to: the legacy stylesheets, which style pages through body.page-* selectors
  */
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 // Adds the class on arrival and removes it on leave, so page styles never leak between pages.
 export function usePageClass(pageClass) {

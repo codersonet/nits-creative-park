@@ -5,7 +5,7 @@
  * Used by: repositories/placement.repository.js
  * Talks to: nothing
  */
-export const PLACEMENT_TABLE = 'placement_stats';
+export const PLACEMENT_TABLE = "placement_stats";
 export const PLACEMENT_SELECT = `academic_year AS "academicYear",
   highest_domestic_package_lpa::float8 AS "highestDomesticPackageLpa",
   highest_package_role AS "highestPackageRole",

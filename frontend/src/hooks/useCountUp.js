@@ -5,8 +5,8 @@
  * Used by: components/features/stats/StatCard
  * Talks to: hooks/useReducedMotion.js, the browser's IntersectionObserver
  */
-import { useEffect, useRef, useState } from 'react';
-import { useReducedMotion } from './useReducedMotion.js';
+import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "./useReducedMotion.js";
 
 const DURATION_MS = 1400;
 
@@ -28,8 +28,13 @@ export function useCountUp(target) {
     // Runs on every animation frame: ease-out curve, so the count slows near the end.
     function step(now, startTime) {
       const progress = Math.min((now - startTime) / DURATION_MS, 1);
-      setValue(progress === 1 ? target : Math.floor((1 - (1 - progress) ** 3) * target));
-      if (progress < 1) frameId = requestAnimationFrame((time) => step(time, startTime));
+      setValue(
+        progress === 1
+          ? target
+          : Math.floor((1 - (1 - progress) ** 3) * target),
+      );
+      if (progress < 1)
+        frameId = requestAnimationFrame((time) => step(time, startTime));
     }
 
     const observer = new IntersectionObserver(

@@ -5,10 +5,10 @@
  * Used by: pages/CompaniesPage
  * Talks to: hooks/useCompanies.js, QueryBoundary, CompanyBadge, Skeleton
  */
-import Skeleton from '@/components/skeletons/Skeleton.jsx';
-import QueryBoundary from '@/components/ui/QueryBoundary.jsx';
-import { useCompanies } from '@/hooks/useCompanies.js';
-import CompanyBadge from './CompanyBadge.jsx';
+import Skeleton from "@/components/skeletons/Skeleton.jsx";
+import QueryBoundary from "@/components/ui/QueryBoundary.jsx";
+import { useCompanies } from "@/hooks/useCompanies.js";
+import CompanyBadge from "./CompanyBadge.jsx";
 
 // The endlessly scrolling strip of recruitment partners.
 export default function PartnersMarquee() {
@@ -32,7 +32,11 @@ export default function PartnersMarquee() {
                 <CompanyBadge key={company.id} company={company} />
               ))}
               {data.items.map((company) => (
-                <CompanyBadge key={`${company.id}-copy`} company={company} hidden />
+                <CompanyBadge
+                  key={`${company.id}-copy`}
+                  company={company}
+                  hidden
+                />
               ))}
             </div>
           </div>

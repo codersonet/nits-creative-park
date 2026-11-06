@@ -7,14 +7,14 @@
 
 // WHY: keeping the names here stops two hooks from accidentally sharing (or missing) a cache entry.
 export const QUERY_KEYS = Object.freeze({
-  projects: 'projects',
-  alumni: 'alumni',
-  companies: 'companies',
-  placementStats: 'placement-stats',
-  events: 'events',
-  fests: 'fests',
-  featuredFest: 'featured-fest',
-  competencies: 'competencies',
-  overviewStats: 'overview-stats',
-  campusMetrics: 'campus-metrics',
+  projects: "projects",
+  alumni: "alumni",
+  companies: "companies",
+  placementStats: "placement-stats",
+  events: "events",
+  fests: "fests",
+  featuredFest: "featured-fest",
+  competencies: "competencies",
+  overviewStats: "overview-stats",
+  campusMetrics: "campus-metrics",
 });

@@ -4,8 +4,8 @@
  * Used by: CardGridSkeleton
  * Talks to: GlassCard, Skeleton
  */
-import GlassCard from '@/components/ui/GlassCard.jsx';
-import Skeleton from './Skeleton.jsx';
+import GlassCard from "@/components/ui/GlassCard.jsx";
+import Skeleton from "./Skeleton.jsx";
 
 // The five blocks stand in for: label, title, two text lines and a progress bar.
 export default function CardSkeleton() {
